@@ -528,20 +528,41 @@ footer {
   font-size: 12px;
 }
 
-/* CORAZONES FLOTANTES */
+/* FLORES FLOTANTES */
 
-.corazon-flotante {
+.flor-flotante {
   position: fixed;
-  bottom: -30px;
+  bottom: -55px;
   z-index: 5;
   pointer-events: none;
-  animation: subir 7s linear forwards;
-  opacity: .7;
+  user-select: none;
+  opacity: 0;
+  animation: subirFlor 12s linear forwards;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,.15));
+  will-change: transform, opacity;
 }
 
-@keyframes subir {
-  to {
-    transform: translateY(-110vh) rotate(360deg);
+@keyframes subirFlor {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: .48;
+  }
+
+  50% {
+    transform: translateY(-55vh) rotate(100deg);
+    opacity: .38;
+  }
+
+  85% {
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateY(-115vh) rotate(240deg);
     opacity: 0;
   }
 }
@@ -571,6 +592,17 @@ footer {
 
   .foto-miniatura img {
     height: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flor-flotante {
+    animation: none;
+    display: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 </style>
@@ -1069,30 +1101,42 @@ document.addEventListener("keydown", (evento) => {
 
 });
 
-/* CORAZONES FLOTANTES */
+/* FLORES FLOTANTES: GIRASOLES Y MARGARITAS */
 
-function crearCorazon() {
+function crearFlor() {
 
-  const corazon = document.createElement("div");
+  const flor = document.createElement("div");
 
-  corazon.className = "corazon-flotante";
-  corazon.textContent = Math.random() > 0.5 ? "♡" : "♥";
+  flor.className = "flor-flotante";
 
-  corazon.style.left = Math.random() * 100 + "vw";
-  corazon.style.fontSize = (14 + Math.random() * 15) + "px";
-  corazon.style.color = Math.random() > 0.5
-    ? "#d8b779"
-    : "#c76b85";
+  const tiposDeFlores = ["🌻", "🌼"];
 
-  document.body.appendChild(corazon);
+  flor.textContent =
+    tiposDeFlores[Math.floor(Math.random() * tiposDeFlores.length)];
+
+  flor.style.left = Math.random() * 100 + "vw";
+
+  const tamano = 17 + Math.random() * 19;
+
+  flor.style.fontSize = tamano + "px";
+
+  const duracion = 10 + Math.random() * 7;
+
+  flor.style.animationDuration = duracion + "s";
+
+  flor.style.animationDelay = "0s";
+
+  document.body.appendChild(flor);
 
   setTimeout(() => {
-    corazon.remove();
-  }, 7000);
+    flor.remove();
+  }, duracion * 1000);
 
 }
 
-setInterval(crearCorazon, 1800);
+/* CREAR UNA FLOR CADA CIERTO TIEMPO */
+
+setInterval(crearFlor, 1400);
 
 </script>
 
