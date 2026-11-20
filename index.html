@@ -5,345 +5,370 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#190d12">
-
 <title>Para mi niña hermosa ❤️</title>
 
 <style>
 :root {
-  --fondo: #190d12;
-  --vino: #421c2c;
-  --dorado: #d8b779;
-  --texto: #f8eee7;
-  --suave: #cbb7b4;
+  --fondo:#190d12;
+  --vino:#421c2c;
+  --dorado:#d8b779;
+  --texto:#f8eee7;
+  --suave:#cbb7b4;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior:smooth; }
 
 body {
-  background: var(--fondo);
-  color: var(--texto);
-  font-family: Georgia, serif;
-  overflow-x: hidden;
-  text-align: center;
+  background:var(--fondo);
+  color:var(--texto);
+  font-family:Georgia,serif;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
+button { font-family:inherit; cursor:pointer; }
 
-/* PANTALLA INICIAL */
+/* ENTRADA */
 
 #entrada {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background:
-    radial-gradient(circle, #542638, #29121d 65%, #13090e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  transition: opacity 1s, visibility 1s;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:radial-gradient(circle,#542638,#29121d 65%,#13090e);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:25px;
+  transition:opacity 1s,visibility 1s;
 }
 
 #entrada.cerrar {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 }
 
-.entrada-contenido {
-  width: 100%;
-  max-width: 390px;
-}
+.entrada-contenido { max-width:390px; width:100%; }
 
 .etiqueta {
-  color: var(--dorado);
-  letter-spacing: 4px;
-  font-size: 11px;
-  margin-bottom: 25px;
+  color:var(--dorado);
+  letter-spacing:4px;
+  font-size:11px;
+  margin-bottom:25px;
 }
 
 #entrada h1 {
-  color: #f8e7dd;
-  font-size: 39px;
-  font-weight: normal;
-  line-height: 1.2;
-  margin-bottom: 15px;
+  color:#f8e7dd;
+  font-size:39px;
+  font-weight:normal;
+  margin-bottom:15px;
 }
 
 #entrada p {
-  color: #e0c9c8;
-  line-height: 1.8;
-  font-size: 15px;
+  color:#e0c9c8;
+  line-height:1.8;
 }
 
 .sobre {
-  margin: 40px auto 30px;
-  width: 210px;
-  height: 145px;
-  background: linear-gradient(145deg, #a34b60, #572337);
-  border: 1px solid var(--dorado);
-  border-radius: 8px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 15px 40px #0008;
-  animation: flotar 3s infinite ease-in-out;
+  margin:40px auto 30px;
+  width:210px;
+  height:145px;
+  background:linear-gradient(145deg,#a34b60,#572337);
+  border:1px solid var(--dorado);
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  animation:flotar 3s infinite ease-in-out;
+  box-shadow:0 15px 40px #0008;
 }
 
 .sobre::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-left: 104px solid transparent;
-  border-right: 104px solid transparent;
-  border-top: 80px solid #b65b70;
+  content:"";
+  position:absolute;
+  top:0;
+  border-left:104px solid transparent;
+  border-right:104px solid transparent;
+  border-top:80px solid #b65b70;
 }
 
 .sello {
-  position: relative;
-  z-index: 2;
-  width: 53px;
-  height: 53px;
-  background: var(--dorado);
-  color: #572337;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 27px;
-  box-shadow: 0 3px 12px #0006;
+  z-index:2;
+  width:53px;
+  height:53px;
+  border-radius:50%;
+  background:var(--dorado);
+  color:#572337;
+  display:grid;
+  place-items:center;
+  font-size:27px;
 }
 
 @keyframes flotar {
-  50% { transform: translateY(-10px); }
+  50% { transform:translateY(-10px); }
 }
+
+/* BOTONES */
 
 .boton {
-  background: var(--dorado);
-  color: #28131c;
-  border: none;
-  padding: 15px 27px;
-  border-radius: 30px;
-  font-size: 15px;
-  margin-top: 25px;
-  transition: .3s;
+  background:var(--dorado);
+  color:#28131c;
+  border:none;
+  padding:15px 27px;
+  border-radius:30px;
+  font-size:15px;
+  margin-top:25px;
+  transition:.3s;
 }
 
-.boton:active {
-  transform: scale(.94);
+.boton:active { transform:scale(.94); }
+
+.boton-secundario {
+  background:transparent;
+  color:var(--dorado);
+  border:1px solid var(--dorado);
+  padding:13px 22px;
+  border-radius:25px;
+  margin-top:20px;
 }
 
-/* CORAZONES FLOTANTES */
+/* CORAZONES */
 
 .corazon {
-  position: fixed;
-  bottom: -30px;
-  z-index: 20;
-  pointer-events: none;
-  animation: subir linear forwards;
-  opacity: .75;
+  position:fixed;
+  bottom:-30px;
+  z-index:20;
+  pointer-events:none;
+  animation:subir linear forwards;
 }
 
 @keyframes subir {
   to {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
   }
 }
 
-/* PORTADA PRINCIPAL */
+/* PORTADA */
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 22px;
-  background:
-    radial-gradient(ellipse, #542333, #29131d 55%, #13090e);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 22px;
+  background:radial-gradient(ellipse,#542333,#29131d 55%,#13090e);
 }
 
 .hero h1 {
-  font-size: clamp(43px, 12vw, 65px);
-  font-weight: normal;
-  line-height: 1.15;
-  color: #f5e4d7;
+  font-size:clamp(43px,12vw,65px);
+  font-weight:normal;
+  line-height:1.15;
+  color:#f5e4d7;
 }
 
 .hero p {
-  color: var(--suave);
-  line-height: 1.9;
-  max-width: 330px;
-  margin: 20px auto;
+  color:var(--suave);
+  line-height:1.9;
+  max-width:330px;
+  margin:20px auto;
 }
 
-.hero .corazon-centro {
-  font-size: 37px;
-  color: var(--dorado);
-  margin: 25px;
-  animation: latido 1.5s infinite;
+.corazon-centro {
+  font-size:37px;
+  color:var(--dorado);
+  margin:25px;
+  animation:latido 1.5s infinite;
 }
 
 @keyframes latido {
-  50% { transform: scale(1.2); }
+  50% { transform:scale(1.2); }
 }
 
 section {
-  max-width: 750px;
-  margin: auto;
-  padding: 75px 22px;
+  max-width:750px;
+  margin:auto;
+  padding:75px 22px;
 }
 
 .etiqueta-seccion {
-  color: var(--dorado);
-  letter-spacing: 4px;
-  font-size: 10px;
-  margin-bottom: 18px;
+  color:var(--dorado);
+  letter-spacing:4px;
+  font-size:10px;
+  margin-bottom:18px;
 }
 
 h2 {
-  font-size: 32px;
-  font-weight: normal;
-  color: #f4e3d7;
-  margin-bottom: 22px;
+  font-size:32px;
+  font-weight:normal;
+  color:#f4e3d7;
+  margin-bottom:22px;
 }
 
 .descripcion {
-  color: var(--suave);
-  line-height: 1.9;
-  font-size: 15px;
+  color:var(--suave);
+  line-height:1.9;
+  font-size:15px;
 }
 
 .divisor {
-  color: var(--dorado);
-  font-size: 24px;
-  margin: 35px;
+  color:var(--dorado);
+  font-size:24px;
+  margin:35px;
 }
 
 /* CARTA */
 
 .caja-carta {
-  background: linear-gradient(145deg, #351823, #24121a);
-  border: 1px solid #d8b77966;
-  padding: 30px 23px;
-  border-radius: 15px;
-  margin-top: 30px;
+  background:linear-gradient(145deg,#351823,#24121a);
+  border:1px solid #d8b77966;
+  padding:30px 23px;
+  border-radius:15px;
+  margin-top:30px;
 }
 
 .carta {
-  display: none;
-  text-align: left;
-  color: #eadbd3;
-  font-size: 16px;
-  line-height: 2;
-  margin-top: 25px;
-  white-space: pre-line;
+  display:none;
+  text-align:left;
+  color:#eadbd3;
+  font-size:16px;
+  line-height:2;
+  margin-top:25px;
+  white-space:pre-line;
 }
 
 .carta.visible {
-  display: block;
-  animation: aparecer .8s;
+  display:block;
+  animation:aparecer .8s;
 }
 
 @keyframes aparecer {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity:0; transform:translateY(15px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
 /* CONTADOR */
 
 .contador {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
-  margin-top: 35px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin-top:35px;
 }
 
 .contador-item {
-  background: #321923;
-  border: 1px solid #d8b77944;
-  padding: 18px 4px;
-  border-radius: 12px;
+  background:#321923;
+  border:1px solid #d8b77944;
+  padding:18px 4px;
+  border-radius:12px;
 }
 
 .contador-item strong {
-  display: block;
-  color: var(--dorado);
-  font-size: 25px;
-  margin-bottom: 7px;
+  display:block;
+  color:var(--dorado);
+  font-size:25px;
+  margin-bottom:7px;
 }
 
 .contador-item span {
-  color: var(--suave);
-  font-size: 10px;
+  color:var(--suave);
+  font-size:10px;
 }
 
 /* GALERÍA */
 
 .galeria {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 13px;
-  margin-top: 30px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+  margin-top:30px;
 }
 
 .foto {
-  min-height: 175px;
-  background: linear-gradient(145deg, #512638, #27131d);
-  border: 1px solid #d8b77955;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--dorado);
-  overflow: hidden;
+  min-width:0;
+  min-height:175px;
+  position:relative;
+  background:linear-gradient(145deg,#512638,#27131d);
+  border:1px solid #d8b77966;
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:10px;
+  color:var(--dorado);
 }
 
-.foto span { font-size: 35px; }
+.foto img {
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+}
+
+.foto span { font-size:35px; }
 
 .foto small {
-  color: var(--suave);
-  font-size: 12px;
+  color:var(--suave);
+  font-size:12px;
+  padding:8px;
+}
+
+.eliminar {
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:30px;
+  height:30px;
+  border:none;
+  border-radius:50%;
+  background:#1b0c12dd;
+  color:white;
+  font-size:17px;
+  z-index:2;
+}
+
+.aviso-fotos {
+  margin-top:18px;
+  color:#bda7a6;
+  font-size:12px;
+  line-height:1.7;
 }
 
 /* FINAL */
 
 .final {
-  background: linear-gradient(145deg, #421d2b, #190d12);
-  padding: 80px 22px;
+  background:linear-gradient(145deg,#421d2b,#190d12);
+  padding:80px 22px;
 }
 
-.final h2 { color: var(--dorado); }
+.final h2 { color:var(--dorado); }
 
 footer {
-  padding: 25px;
-  color: #a58c88;
-  font-size: 12px;
+  padding:25px;
+  color:#a58c88;
+  font-size:12px;
 }
 
-@media(max-width: 350px) {
-  .contador { gap: 5px; }
-  .contador-item strong { font-size: 19px; }
-  .contador-item span { font-size: 9px; }
+@media(max-width:350px) {
+  .contador { gap:5px; }
+  .contador-item strong { font-size:19px; }
+  .contador-item span { font-size:9px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PANTALLA DE ENTRADA -->
+<!-- ENTRADA -->
 
 <div id="entrada">
   <div class="entrada-contenido">
@@ -374,11 +399,9 @@ footer {
 
 <!-- PORTADA -->
 
-<header class="hero" id="inicio">
+<header class="hero">
   <div>
-    <div class="etiqueta-seccion">
-      UNA HISTORIA ESPECIAL
-    </div>
+    <div class="etiqueta-seccion">UNA HISTORIA ESPECIAL</div>
 
     <h1>Para el amor<br>de mi vida</h1>
 
@@ -390,8 +413,7 @@ footer {
       Tú eres esa persona para mí.
     </p>
 
-    <button class="boton"
-      onclick="irA('carta')">
+    <button class="boton" onclick="irA('carta')">
       Tengo algo para ti ❤️
     </button>
   </div>
@@ -401,7 +423,6 @@ footer {
 
 <section>
   <div class="etiqueta-seccion">NUESTRA HISTORIA</div>
-
   <h2>Un sentimiento único</h2>
 
   <p class="descripcion">
@@ -420,7 +441,6 @@ footer {
 
 <section id="carta">
   <div class="etiqueta-seccion">CON TODO MI CORAZÓN</div>
-
   <h2>Una carta para ti</h2>
 
   <p class="descripcion">
@@ -459,17 +479,13 @@ que significas en mi vida.
 
 Con todo mi amor. ❤️
     </div>
-
   </div>
 </section>
 
 <!-- CONTADOR -->
 
 <section>
-  <div class="etiqueta-seccion">
-    DESDE QUE COMENZÓ TODO
-  </div>
-
+  <div class="etiqueta-seccion">DESDE QUE COMENZÓ TODO</div>
   <h2>Nuestro tiempo juntos</h2>
 
   <p class="descripcion">
@@ -478,7 +494,6 @@ Con todo mi amor. ❤️
   </p>
 
   <div class="contador">
-
     <div class="contador-item">
       <strong id="dias">0</strong>
       <span>DÍAS</span>
@@ -498,23 +513,23 @@ Con todo mi amor. ❤️
       <strong id="segundos">0</strong>
       <span>SEGUNDOS</span>
     </div>
-
   </div>
 </section>
 
 <!-- GALERÍA -->
 
-<section>
+<section id="recuerdos">
+
   <div class="etiqueta-seccion">NUESTROS RECUERDOS</div>
 
   <h2>Momentos que valen oro</h2>
 
   <p class="descripcion">
-    Cada fotografía guarda una historia
-    que siempre quiero recordar.
+    Seis recuerdos para comenzar una colección
+    de momentos que quiero conservar contigo.
   </p>
 
-  <div class="galeria">
+  <div class="galeria" id="galeria">
 
     <div class="foto">
       <span>📷</span>
@@ -533,10 +548,37 @@ Con todo mi amor. ❤️
 
     <div class="foto">
       <span>✨</span>
-      <small>Y muchos más por vivir</small>
+      <small>Un día para recordar</small>
+    </div>
+
+    <div class="foto">
+      <span>🥰</span>
+      <small>Mi persona favorita</small>
+    </div>
+
+    <div class="foto">
+      <span>💛</span>
+      <small>Un recuerdo contigo</small>
     </div>
 
   </div>
+
+  <button class="boton" id="agregarFotos">
+    + Agregar más recuerdos
+  </button>
+
+  <input
+    type="file"
+    id="selectorFotos"
+    accept="image/*"
+    multiple
+    hidden
+  >
+
+  <p class="aviso-fotos" id="avisoFotos">
+    Puedes seleccionar varias fotografías desde tu celular.
+  </p>
+
 </section>
 
 <!-- FINAL -->
@@ -555,9 +597,7 @@ Con todo mi amor. ❤️
     Lo mejor de nosotros todavía está por escribirse.
   </p>
 
-  <div class="divisor">
-    Con amor, siempre ❤️
-  </div>
+  <div class="divisor">Con amor, siempre ❤️</div>
 
   <p>Mi niña hermosa 🩵🩷💛</p>
 
@@ -574,7 +614,7 @@ Con todo mi amor. ❤️
 // ABRIR EL REGALO
 
 document.getElementById("abrirRegalo")
-.addEventListener("click", function() {
+.addEventListener("click",function(){
 
   document.getElementById("entrada")
   .classList.add("cerrar");
@@ -585,90 +625,164 @@ document.getElementById("abrirRegalo")
 
 // NAVEGACIÓN
 
-function irA(id) {
+function irA(id){
   document.getElementById(id)
   .scrollIntoView({behavior:"smooth"});
 }
 
-// ABRIR Y CERRAR CARTA
+// CARTA
 
-const botonCarta = document.getElementById("botonCarta");
-const textoCarta = document.getElementById("textoCarta");
+const botonCarta=document.getElementById("botonCarta");
+const textoCarta=document.getElementById("textoCarta");
 
-botonCarta.addEventListener("click", function() {
+botonCarta.addEventListener("click",function(){
 
   textoCarta.classList.toggle("visible");
 
-  botonCarta.textContent =
+  botonCarta.textContent=
     textoCarta.classList.contains("visible")
     ? "Cerrar mi carta"
     : "Abrir mi carta";
 
 });
 
-// CONTADOR DESDE EL 5 DE ABRIL DE 2026
+// CONTADOR
 
-const fechaInicio = new Date(2026, 3, 5, 0, 0, 0);
+const fechaInicio=new Date(2026,3,5,0,0,0);
 
-function actualizarContador() {
+function actualizarContador(){
 
-  const ahora = new Date();
+  const ahora=new Date();
+  let diferencia=ahora-fechaInicio;
 
-  let diferencia = ahora - fechaInicio;
+  if(diferencia<0)diferencia=0;
 
-  if (diferencia < 0) diferencia = 0;
+  const dias=Math.floor(diferencia/86400000);
+  const horas=Math.floor((diferencia%86400000)/3600000);
+  const minutos=Math.floor((diferencia%3600000)/60000);
+  const segundos=Math.floor((diferencia%60000)/1000);
 
-  const dias = Math.floor(diferencia / 86400000);
-
-  const horas = Math.floor(
-    (diferencia % 86400000) / 3600000
-  );
-
-  const minutos = Math.floor(
-    (diferencia % 3600000) / 60000
-  );
-
-  const segundos = Math.floor(
-    (diferencia % 60000) / 1000
-  );
-
-  document.getElementById("dias").textContent = dias;
-  document.getElementById("horas").textContent = horas;
-  document.getElementById("minutos").textContent = minutos;
-  document.getElementById("segundos").textContent = segundos;
+  document.getElementById("dias").textContent=dias;
+  document.getElementById("horas").textContent=horas;
+  document.getElementById("minutos").textContent=minutos;
+  document.getElementById("segundos").textContent=segundos;
 
 }
 
 actualizarContador();
-setInterval(actualizarContador, 1000);
+setInterval(actualizarContador,1000);
 
-// CORAZONES FLOTANTES
+// CORAZONES
 
-function crearCorazones(cantidad) {
+function crearCorazones(cantidad){
 
-  for (let i = 0; i < cantidad; i++) {
+  for(let i=0;i<cantidad;i++){
 
-    const corazon = document.createElement("div");
+    const corazon=document.createElement("div");
 
-    corazon.className = "corazon";
+    corazon.className="corazon";
+    corazon.textContent=["♥","♡","💗"][i%3];
 
-    corazon.textContent = ["♥","♡","💗"][i % 3];
-
-    corazon.style.left = Math.random() * 100 + "vw";
-
-    corazon.style.fontSize =
-      (15 + Math.random() * 18) + "px";
-
-    corazon.style.animationDuration =
-      (4 + Math.random() * 4) + "s";
+    corazon.style.left=Math.random()*100+"vw";
+    corazon.style.fontSize=(15+Math.random()*18)+"px";
+    corazon.style.animationDuration=(4+Math.random()*4)+"s";
 
     document.body.appendChild(corazon);
 
-    setTimeout(() => corazon.remove(), 8500);
+    setTimeout(()=>corazon.remove(),8500);
 
   }
 
 }
+
+// GALERÍA DE FOTOGRAFÍAS
+
+const selectorFotos=document.getElementById("selectorFotos");
+const agregarFotos=document.getElementById("agregarFotos");
+const galeria=document.getElementById("galeria");
+const avisoFotos=document.getElementById("avisoFotos");
+
+let fotosSeleccionadas=[];
+
+agregarFotos.addEventListener("click",function(){
+  selectorFotos.click();
+});
+
+selectorFotos.addEventListener("change",function(){
+
+  const archivos=Array.from(selectorFotos.files || []);
+  const permitidos=archivos.filter(archivo=>
+    archivo.type.startsWith("image/")
+  );
+
+  if(permitidos.length===0){
+    avisoFotos.textContent="No se seleccionaron fotografías.";
+    return;
+  }
+
+  let agregadas=0;
+
+  permitidos.forEach(archivo=>{
+
+    if(fotosSeleccionadas.length>=50)return;
+
+    const lector=new FileReader();
+
+    lector.onload=function(event){
+
+      fotosSeleccionadas.push({
+        nombre:archivo.name,
+        contenido:event.target.result
+      });
+
+      const tarjeta=document.createElement("div");
+      tarjeta.className="foto";
+
+      const imagen=document.createElement("img");
+      imagen.src=event.target.result;
+      imagen.alt="Recuerdo especial";
+
+      const eliminar=document.createElement("button");
+      eliminar.className="eliminar";
+      eliminar.textContent="×";
+      eliminar.setAttribute("aria-label","Eliminar fotografía");
+
+      eliminar.addEventListener("click",function(){
+
+        const indice=Array.from(galeria.children).indexOf(tarjeta);
+
+        fotosSeleccionadas.splice(indice-6,1);
+        tarjeta.remove();
+
+        avisoFotos.textContent=
+          "Fotografía eliminada de esta vista.";
+
+      });
+
+      tarjeta.appendChild(imagen);
+      tarjeta.appendChild(eliminar);
+
+      galeria.appendChild(tarjeta);
+
+      agregadas++;
+
+      avisoFotos.textContent=
+        "Se agregaron "+agregadas+
+        " fotografía(s) a la vista de esta página. Recuerda publicarlas en GitHub para compartirlas.";
+
+    };
+
+    lector.onerror=function(){
+      avisoFotos.textContent="No se pudo leer una fotografía.";
+    };
+
+    lector.readAsDataURL(archivo);
+
+  });
+
+  selectorFotos.value="";
+
+});
 
 </script>
 
