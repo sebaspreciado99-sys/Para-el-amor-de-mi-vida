@@ -282,29 +282,92 @@ h2 {
   font-size:10px;
 }
 
-/* GALERÍA */
+/* BOTÓN DE GALERÍA */
+
+.boton-camara {
+  width:100px;
+  height:100px;
+  margin:35px auto 0;
+  border-radius:50%;
+  border:1px solid var(--dorado);
+  background:linear-gradient(145deg,#512638,#27131d);
+  color:var(--dorado);
+  font-size:42px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 8px 30px #0006;
+  transition:.3s;
+}
+
+.boton-camara:active {
+  transform:scale(.92);
+}
+
+.texto-camara {
+  color:var(--suave);
+  font-size:13px;
+  margin-top:15px;
+}
+
+/* VENTANA DE GALERÍA */
+
+.modal-galeria {
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:#13090ef5;
+  display:none;
+  overflow-y:auto;
+  padding:25px 15px 40px;
+}
+
+.modal-galeria.visible {
+  display:block;
+  animation:aparecer .35s;
+}
+
+.modal-cabecera {
+  max-width:750px;
+  margin:0 auto 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.modal-cabecera h2 {
+  color:var(--dorado);
+  font-size:25px;
+  margin:0;
+}
+
+.cerrar-modal {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--dorado);
+  background:#351823;
+  color:var(--dorado);
+  font-size:25px;
+}
 
 .galeria {
+  max-width:750px;
+  margin:auto;
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:13px;
-  margin-top:30px;
 }
 
 .foto {
   min-width:0;
-  min-height:175px;
   position:relative;
   background:linear-gradient(145deg,#512638,#27131d);
   border:1px solid #d8b77966;
   border-radius:12px;
   overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:10px;
-  color:var(--dorado);
+  cursor:pointer;
 }
 
 .foto img {
@@ -312,35 +375,57 @@ h2 {
   height:190px;
   object-fit:cover;
   display:block;
+  transition:transform .3s;
 }
 
-.foto span { font-size:35px; }
+.foto:active img {
+  transform:scale(.97);
+}
 
 .foto small {
+  display:block;
   color:var(--suave);
   font-size:12px;
-  padding:8px;
+  padding:12px 5px;
 }
 
-.eliminar {
+/* FOTO EN PANTALLA GRANDE */
+
+.modal-foto {
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:#090609f7;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:45px 12px 20px;
+}
+
+.modal-foto.visible {
+  display:flex;
+  animation:aparecer .3s;
+}
+
+.modal-foto img {
+  max-width:100%;
+  max-height:85vh;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 10px 40px #000;
+}
+
+.cerrar-foto {
   position:absolute;
-  top:8px;
-  right:8px;
-  width:30px;
-  height:30px;
-  border:none;
+  top:12px;
+  right:15px;
+  width:42px;
+  height:42px;
+  border:1px solid var(--dorado);
   border-radius:50%;
-  background:#1b0c12dd;
-  color:white;
-  font-size:17px;
-  z-index:2;
-}
-
-.aviso-fotos {
-  margin-top:18px;
-  color:#bda7a6;
-  font-size:12px;
-  line-height:1.7;
+  background:#351823;
+  color:var(--dorado);
+  font-size:25px;
 }
 
 /* CANCIÓN */
@@ -388,6 +473,15 @@ h2 {
   border-radius:12px;
 }
 
+.enlace-youtube {
+  display:inline-block;
+  margin-top:18px;
+  color:var(--dorado);
+  font-size:14px;
+  text-decoration:underline;
+  line-height:1.7;
+}
+
 /* FINAL */
 
 .final {
@@ -407,6 +501,8 @@ footer {
   .contador { gap:5px; }
   .contador-item strong { font-size:19px; }
   .contador-item span { font-size:9px; }
+
+  .foto img { height:155px; }
 }
 </style>
 </head>
@@ -559,7 +655,7 @@ Con todo mi amor. ❤️</div>
   </div>
 </section>
 
-<!-- GALERÍA -->
+<!-- RECUERDOS -->
 
 <section id="recuerdos">
 
@@ -568,67 +664,59 @@ Con todo mi amor. ❤️</div>
   <h2>Momentos que valen oro</h2>
 
   <p class="descripcion">
-    Seis recuerdos para comenzar una colección
-    de momentos que quiero conservar contigo.
+    Cada fotografía guarda un pedacito de nuestra historia.
+    Quiero conservar muchos momentos contigo.
   </p>
 
-  <div class="galeria" id="galeria">
+  <!-- ÚNICO BOTÓN PARA ABRIR LA GALERÍA -->
 
-    <!-- PRIMER RECUERDO: FOTO REAL -->
-
-    <div class="foto">
-      <img
-        src="Screenshot_2026-11-20-10-18-32-360_com.miui.gallery.jpg"
-        alt="Nuestro primer recuerdo"
-        loading="lazy"
-      >
-      <small>Nuestro primer recuerdo ❤️</small>
-    </div>
-
-    <div class="foto">
-      <span>❤️</span>
-      <small>Un momento especial</small>
-    </div>
-
-    <div class="foto">
-      <span>🌹</span>
-      <small>Una sonrisa inolvidable</small>
-    </div>
-
-    <div class="foto">
-      <span>✨</span>
-      <small>Un día para recordar</small>
-    </div>
-
-    <div class="foto">
-      <span>🥰</span>
-      <small>Mi persona favorita</small>
-    </div>
-
-    <div class="foto">
-      <span>💛</span>
-      <small>Un recuerdo contigo</small>
-    </div>
-
-  </div>
-
-  <button class="boton" id="agregarFotos">
-    + Agregar más recuerdos
+  <button
+    class="boton-camara"
+    id="abrirGaleria"
+    aria-label="Abrir nuestros recuerdos"
+    title="Abrir nuestros recuerdos">
+    📷
   </button>
 
-  <input
-    type="file"
-    id="selectorFotos"
-    accept="image/*"
-    multiple
-    hidden
-  >
-
-  <p class="aviso-fotos" id="avisoFotos">
-    Puedes seleccionar varias fotografías desde tu celular.
+  <p class="texto-camara">
+    Toca la cámara para ver nuestros recuerdos.
   </p>
 
 </section>
+
+<!-- VENTANA DE GALERÍA -->
+
+<div class="modal-galeria" id="modalGaleria">
+
+  <div class="modal-cabecera">
+    <h2>Nuestros recuerdos ❤️</h2>
+
+    <button
+      class="cerrar-modal"
+      id="cerrarGaleria"
+      aria-label="Cerrar galería">
+      ×
+    </button>
+  </div>
+
+  <div class="galeria" id="listaFotos"></div>
+
+</div>
+
+<!-- VISOR DE FOTO GRANDE -->
+
+<div class="modal-foto" id="modalFoto">
+
+  <button
+    class="cerrar-foto"
+    id="cerrarFoto"
+    aria-label="Cerrar fotografía">
+    ×
+  </button>
+
+  <img id="fotoGrande" src="" alt="Nuestro recuerdo">
+
+</div>
 
 <!-- CANCIÓN -->
 
@@ -661,14 +749,24 @@ Con todo mi amor. ❤️</div>
     </button>
 
     <div class="reproductor" id="reproductor">
+
       <iframe
         id="videoYoutube"
         title="Nuestra canción"
         src=""
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
       </iframe>
+
+      <a
+        class="enlace-youtube"
+        href="https://www.youtube.com/watch?v=7XPmRUp_Yf4"
+        target="_blank"
+        rel="noopener noreferrer">
+        Si no puedes reproducirla aquí, escúchala directamente en YouTube.
+      </a>
+
     </div>
 
   </div>
@@ -705,7 +803,30 @@ Con todo mi amor. ❤️</div>
 
 <script>
 
-// ABRIR EL REGALO
+// ======================================
+// FOTOGRAFÍAS DE LA GALERÍA
+// ======================================
+
+// PARA AGREGAR OTRA FOTO EN EL FUTURO:
+// 1. Sube la fotografía a la raíz del repositorio.
+// 2. Copia su nombre exacto.
+// 3. Agrega una línea más siguiendo este ejemplo:
+//
+// {
+//   archivo: "nombre-de-la-foto.jpg",
+//   descripcion: "Un momento especial"
+// }
+
+const fotos = [
+
+  {
+    archivo: "Screenshot_2026-11-20-10-18-32-360_com.miui.gallery.jpg",
+    descripcion: "Nuestro primer recuerdo ❤️"
+  }
+
+];
+
+// ABRIR Y CERRAR EL REGALO
 
 document.getElementById("abrirRegalo")
 .addEventListener("click",function(){
@@ -789,101 +910,120 @@ function crearCorazones(cantidad){
 
 }
 
-// GALERÍA DE FOTOGRAFÍAS
+// ======================================
+// GALERÍA Y FOTOGRAFÍAS EN PANTALLA GRANDE
+// ======================================
 
-const selectorFotos=document.getElementById("selectorFotos");
-const agregarFotos=document.getElementById("agregarFotos");
-const galeria=document.getElementById("galeria");
-const avisoFotos=document.getElementById("avisoFotos");
+const botonGaleria=document.getElementById("abrirGaleria");
+const modalGaleria=document.getElementById("modalGaleria");
+const cerrarGaleria=document.getElementById("cerrarGaleria");
+const listaFotos=document.getElementById("listaFotos");
 
-let fotosSeleccionadas=[];
+const modalFoto=document.getElementById("modalFoto");
+const fotoGrande=document.getElementById("fotoGrande");
+const cerrarFoto=document.getElementById("cerrarFoto");
 
-agregarFotos.addEventListener("click",function(){
-  selectorFotos.click();
-});
+// CONSTRUIR LA GALERÍA DESDE EL CÓDIGO
 
-selectorFotos.addEventListener("change",function(){
+function cargarGaleria(){
 
-  const archivos=Array.from(selectorFotos.files || []);
-  const permitidos=archivos.filter(archivo=>
-    archivo.type.startsWith("image/")
-  );
+  listaFotos.innerHTML="";
 
-  if(permitidos.length===0){
-    avisoFotos.textContent="No se seleccionaron fotografías.";
-    return;
-  }
+  fotos.forEach(function(foto){
 
-  permitidos.forEach(archivo=>{
+    const tarjeta=document.createElement("div");
+    tarjeta.className="foto";
 
-    if(fotosSeleccionadas.length>=50){
-      avisoFotos.textContent="Has alcanzado el límite de 50 fotografías adicionales.";
-      return;
-    }
+    const imagen=document.createElement("img");
+    imagen.src=foto.archivo;
+    imagen.alt=foto.descripcion;
+    imagen.loading="lazy";
 
-    const lector=new FileReader();
+    const descripcion=document.createElement("small");
+    descripcion.textContent=foto.descripcion;
 
-    lector.onload=function(event){
+    imagen.addEventListener("click",function(){
 
-      const recuerdo={
-        nombre:archivo.name,
-        contenido:event.target.result
-      };
+      fotoGrande.src=foto.archivo;
+      fotoGrande.alt=foto.descripcion;
 
-      fotosSeleccionadas.push(recuerdo);
+      modalFoto.classList.add("visible");
 
-      const tarjeta=document.createElement("div");
-      tarjeta.className="foto";
+    });
 
-      const imagen=document.createElement("img");
-      imagen.src=recuerdo.contenido;
-      imagen.alt="Recuerdo especial";
+    tarjeta.appendChild(imagen);
+    tarjeta.appendChild(descripcion);
 
-      const eliminar=document.createElement("button");
-      eliminar.className="eliminar";
-      eliminar.textContent="×";
-      eliminar.setAttribute("aria-label","Eliminar fotografía");
-
-      eliminar.addEventListener("click",function(){
-
-        const indice=fotosSeleccionadas.indexOf(recuerdo);
-
-        if(indice!==-1){
-          fotosSeleccionadas.splice(indice,1);
-        }
-
-        tarjeta.remove();
-
-        avisoFotos.textContent=
-          "Fotografía eliminada de esta vista.";
-
-      });
-
-      tarjeta.appendChild(imagen);
-      tarjeta.appendChild(eliminar);
-
-      galeria.appendChild(tarjeta);
-
-      avisoFotos.textContent=
-        "Fotografía agregada a esta vista. Para compartirla con tu novia, también debes subirla a GitHub.";
-
-    };
-
-    lector.onerror=function(){
-      avisoFotos.textContent="No se pudo leer una fotografía.";
-    };
-
-    lector.readAsDataURL(archivo);
+    listaFotos.appendChild(tarjeta);
 
   });
 
-  selectorFotos.value="";
+}
+
+// ABRIR GALERÍA
+
+botonGaleria.addEventListener("click",function(){
+
+  cargarGaleria();
+  modalGaleria.classList.add("visible");
 
 });
 
-// CANCIÓN DE YOUTUBE
+// CERRAR GALERÍA
 
-const enlaceCancion="https://youtu.be/7XPmRUp_Yf4?si=58ZTxdiIP_hELO5d";
+cerrarGaleria.addEventListener("click",function(){
+
+  modalGaleria.classList.remove("visible");
+
+});
+
+// CERRAR AL TOCAR EL FONDO
+
+modalGaleria.addEventListener("click",function(event){
+
+  if(event.target===modalGaleria){
+    modalGaleria.classList.remove("visible");
+  }
+
+});
+
+// CERRAR FOTO GRANDE
+
+function cerrarFotoGrande(){
+
+  modalFoto.classList.remove("visible");
+  fotoGrande.src="";
+
+}
+
+cerrarFoto.addEventListener("click",cerrarFotoGrande);
+
+modalFoto.addEventListener("click",function(event){
+
+  if(event.target===modalFoto){
+    cerrarFotoGrande();
+  }
+
+});
+
+// CERRAR CON LA TECLA ESCAPE
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key==="Escape"){
+
+    cerrarFotoGrande();
+    modalGaleria.classList.remove("visible");
+
+  }
+
+});
+
+// ======================================
+// CANCIÓN DE YOUTUBE
+// ======================================
+
+const ID_CANCION="7XPmRUp_Yf4";
 
 const botonMusica=document.getElementById("botonMusica");
 const reproductor=document.getElementById("reproductor");
@@ -893,19 +1033,10 @@ botonMusica.addEventListener("click",function(){
 
   if(!videoYoutube.src){
 
-    const coincidencia=enlaceCancion.match(
-      /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/
-    );
-
-    if(!coincidencia){
-      alert("No se pudo reconocer el enlace de YouTube.");
-      return;
-    }
-
     videoYoutube.src=
       "https://www.youtube.com/embed/"+
-      coincidencia[1]+
-      "?autoplay=0&controls=1&rel=0";
+      ID_CANCION+
+      "?playsinline=1&controls=1&rel=0";
 
   }
 
