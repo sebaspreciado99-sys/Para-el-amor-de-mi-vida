@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190d12">
+<title>Para el amor de mi vida ❤️</title>
+
+<style>
+:root {
+  --fondo: #190d12;
+  --vino: #451b2b;
+  --dorado: #d8b779;
+  --texto: #f8eee7;
+  --suave: #cbb7b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Georgia, serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 22px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, #542333 0%, #29131d 48%, #13090e 100%);
+}
+
+.hero::before {
+  content: "♥";
+  position: absolute;
+  font-size: 250px;
+  color: rgba(216,183,121,.06);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--dorado);
+  letter-spacing: 5px;
+  font-size: 11px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 12vw, 65px);
+  font-weight: normal;
+  line-height: 1.15;
+  color: #f5e4d7;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--suave);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 330px;
+  margin: auto;
+}
+
+.heart {
+  font-size: 35px;
+  color: var(--dorado);
+  margin: 25px 0;
+  animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+  50% { transform: scale(1.2); }
+}
+
+.btn {
+  display: inline-block;
+  background: var(--dorado);
+  color: #24121a;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-top: 25px;
+  transition: .3s;
+}
+
+.btn:active {
+  transform: scale(.95);
+}
+
+section {
+  padding: 75px 22px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.section-label {
+  color: var(--dorado);
+  letter-spacing: 4px;
+  font-size: 10px;
+  margin-bottom: 17px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 22px;
+  color: #f4e3d7;
+}
+
+.description {
+  color: var(--suave);
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.divider {
+  color: var(--dorado);
+  font-size: 23px;
+  margin: 35px 0;
+}
+
+/* CARTA */
+
+.letter-box {
+  background: linear-gradient(145deg, #351823, #24121a);
+  border: 1px solid rgba(216,183,121,.4);
+  padding: 30px 23px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  color: #eadbd3;
+  font-size: 16px;
+  line-height: 2;
+  margin-top: 25px;
+  white-space: pre-line;
+}
+
+.letter.show {
+  display: block;
+  animation: aparecer .8s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CONTADOR */
+
+.counter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin-top: 35px;
+}
+
+.counter-item {
+  background: #321923;
+  border: 1px solid rgba(216,183,121,.25);
+  padding: 18px 5px;
+  border-radius: 12px;
+}
+
+.counter-item strong {
+  display: block;
+  color: var(--dorado);
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+.counter-item span {
+  color: var(--suave);
+  font-size: 10px;
+}
+
+/* GALERÍA */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.photo {
+  min-height: 175px;
+  border: 1px solid rgba(216,183,121,.3);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #512638, #27131d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--dorado);
+}
+
+.photo span {
+  font-size: 35px;
+}
+
+.photo small {
+  color: var(--suave);
+  font-size: 12px;
+}
+
+/* FINAL */
+
+.final {
+  background: linear-gradient(145deg, #421d2b, #190d12);
+  padding: 75px 22px;
+}
+
+.final h2 {
+  color: var(--dorado);
+}
+
+footer {
+  padding: 25px;
+  color: #a58c88;
+  font-size: 12px;
+}
+
+@media(max-width: 350px) {
+  .counter { gap: 5px; }
+  .counter-item strong { font-size: 20px; }
+  .counter-item span { font-size: 9px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">UNA HISTORIA ESPECIAL</div>
+
+    <h1>Para el amor<br>de mi vida</h1>
+
+    <div class="heart">♥</div>
+
+    <p>
+      Hay personas que llegan a nuestra vida
+      y hacen que todo sea más bonito.
+      Tú eres esa persona para mí.
+    </p>
+
+    <button class="btn"
+      onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">
+      Tengo algo para ti ❤️
+    </button>
+  </div>
+</header>
+
+<!-- INTRODUCCIÓN -->
+<section>
+  <div class="section-label">NUESTRA HISTORIA</div>
+  <h2>Un sentimiento único</h2>
+
+  <p class="description">
+    No necesito una ocasión especial para recordarte
+    lo importante que eres para mí.
+    Simplemente quería crear algo que pudieras
+    visitar cada vez que quieras recordar
+    cuánto te quiero.
+  </p>
+
+  <div class="divider">✦ ♥ ✦</div>
+</section>
+
+<!-- CARTA -->
+<section id="carta">
+  <div class="section-label">CON TODO MI CORAZÓN</div>
+  <h2>Una carta para ti</h2>
+
+  <p class="description">
+    Hay palabras que merecen un lugar especial.
+  </p>
+
+  <div class="letter-box">
+    <div style="color:var(--dorado);font-size:35px">💌</div>
+
+    <h3 style="font-weight:normal;margin-top:12px">
+      Mi persona favorita
+    </h3>
+
+    <button class="btn" id="openLetter">
+      Abrir mi carta
+    </button>
+
+    <div class="letter" id="letter">
+      Mi amor:
+
+      Quiero que sepas lo feliz que me hace
+      tenerte en mi vida.
+
+      Gracias por cada sonrisa, cada momento,
+      cada abrazo y cada recuerdo que hemos
+      construido juntos.
+
+      No prometo que todos los días sean
+      perfectos, pero sí quiero seguir
+      construyendo momentos bonitos contigo.
+
+      Eres una persona muy especial para mí
+      y espero que nunca olvides lo mucho
+      que significas en mi vida.
+
+      Con todo mi amor. ❤️
+    </div>
+  </div>
+</section>
+
+<!-- CONTADOR -->
+<section>
+  <div class="section-label">DESDE QUE COMENZÓ TODO</div>
+  <h2>Nuestro tiempo juntos</h2>
+
+  <p class="description">
+    Cada día contigo es un motivo más
+    para agradecer esta historia.
+  </p>
+
+  <div class="counter">
+    <div class="counter-item">
+      <strong id="days">0</strong>
+      <span>DÍAS</span>
+    </div>
+
+    <div class="counter-item">
+      <strong id="hours">0</strong>
+      <span>HORAS</span>
+    </div>
+
+    <div class="counter-item">
+      <strong id="minutes">0</strong>
+      <span>MINUTOS</span>
+    </div>
+
+    <div class="counter-item">
+      <strong id="seconds">0</strong>
+      <span>SEGUNDOS</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section>
+  <div class="section-label">NUESTROS RECUERDOS</div>
+  <h2>Momentos que valen oro</h2>
+
+  <p class="description">
+    Cada fotografía guarda una historia
+    que siempre quiero recordar.
+  </p>
+
+  <div class="gallery">
+    <div class="photo">
+      <span>📷</span>
+      <small>Nuestro primer recuerdo</small>
+    </div>
+
+    <div class="photo">
+      <span>❤️</span>
+      <small>Un momento especial</small>
+    </div>
+
+    <div class="photo">
+      <span>🌹</span>
+      <small>Una sonrisa inolvidable</small>
+    </div>
+
+    <div class="photo">
+      <span>✨</span>
+      <small>Y muchos más por vivir</small>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<div class="final">
+  <div class="heart">♥</div>
+
+  <h2>Mi lugar favorito<br>siempre será a tu lado</h2>
+
+  <p class="description">
+    Gracias por ser parte de mi historia.
+    Lo mejor de nosotros todavía está por escribirse.
+  </p>
+
+  <div class="divider">Con amor, siempre ❤️</div>
+</div>
+
+<footer>
+  Hecho con amor, especialmente para ti.
+  <br><br>
+  © Nuestra historia ❤️
+</footer>
+
+<script>
+// CARTA INTERACTIVA
+
+const openLetter = document.getElementById("openLetter");
+const letter = document.getElementById("letter");
+
+openLetter.addEventListener("click", () => {
+  letter.classList.toggle("show");
+
+  openLetter.textContent = letter.classList.contains("show")
+    ? "Cerrar mi carta"
+    : "Abrir mi carta";
+});
+
+// CONTADOR DESDE EL 5 DE ABRIL DE 2026
+
+const fechaInicio = new Date(2026, 3, 5, 0, 0, 0);
+
+function actualizarContador() {
+  const ahora = new Date();
+  let diferencia = ahora - fechaInicio;
+
+  if (diferencia < 0) diferencia = 0;
+
+  const dias = Math.floor(diferencia / 86400000);
+  const horas = Math.floor((diferencia % 86400000) / 3600000);
+  const minutos = Math.floor((diferencia % 3600000) / 60000);
+  const segundos = Math.floor((diferencia % 60000) / 1000);
+
+  document.getElementById("days").textContent = dias;
+  document.getElementById("hours").textContent = horas;
+  document.getElementById("minutes").textContent = minutos;
+  document.getElementById("seconds").textContent = segundos;
+}
+
+actualizarContador();
+setInterval(actualizarContador, 1000);
+</script>
+
+</body>
+</html>
