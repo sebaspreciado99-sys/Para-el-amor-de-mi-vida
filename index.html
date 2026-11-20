@@ -5,634 +5,692 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#190d12">
+<meta name="description" content="Un pequeño regalo hecho con mucho amor para ti.">
 <title>Para mi niña hermosa ❤️</title>
 
 <style>
 :root {
-  --fondo:#190d12;
-  --vino:#421c2c;
-  --dorado:#d8b779;
-  --texto:#f8eee7;
-  --suave:#cbb7b4;
+  --fondo: #190d12;
+  --vino: #421c2c;
+  --dorado: #d8b779;
+  --texto: #f8eee7;
+  --suave: #cbb7b4;
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background:var(--fondo);
-  color:var(--texto);
-  font-family:Georgia,serif;
-  text-align:center;
-  overflow-x:hidden;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Georgia, serif;
+  overflow-x: hidden;
 }
 
-button { font-family:inherit; cursor:pointer; }
-
-/* ENTRADA */
-
-#entrada {
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  background:radial-gradient(circle,#542638,#29121d 65%,#13090e);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:25px;
-  transition:opacity 1s,visibility 1s;
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
-#entrada.cerrar {
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
+h1, h2, h3 {
+  font-weight: normal;
 }
 
-.entrada-contenido { max-width:390px; width:100%; }
-
-.etiqueta {
-  color:var(--dorado);
-  letter-spacing:4px;
-  font-size:11px;
-  margin-bottom:25px;
+p {
+  line-height: 1.8;
 }
 
-#entrada h1 {
-  color:#f8e7dd;
-  font-size:39px;
-  font-weight:normal;
-  margin-bottom:15px;
+/* ELEMENTOS GENERALES */
+
+.seccion {
+  width: 100%;
+  padding: 65px 20px;
+  text-align: center;
 }
 
-#entrada p {
-  color:#e0c9c8;
-  line-height:1.8;
+.titulo {
+  color: var(--dorado);
+  font-size: clamp(27px, 7vw, 36px);
+  margin-bottom: 20px;
 }
 
-.sobre {
-  margin:40px auto 30px;
-  width:210px;
-  height:145px;
-  background:linear-gradient(145deg,#a34b60,#572337);
-  border:1px solid var(--dorado);
-  border-radius:8px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  animation:flotar 3s infinite ease-in-out;
-  box-shadow:0 15px 40px #0008;
-}
-
-.sobre::before {
-  content:"";
-  position:absolute;
-  top:0;
-  border-left:104px solid transparent;
-  border-right:104px solid transparent;
-  border-top:80px solid #b65b70;
-}
-
-.sello {
-  z-index:2;
-  width:53px;
-  height:53px;
-  border-radius:50%;
-  background:var(--dorado);
-  color:#572337;
-  display:grid;
-  place-items:center;
-  font-size:27px;
-}
-
-@keyframes flotar {
-  50% { transform:translateY(-10px); }
+.texto-suave {
+  color: var(--suave);
 }
 
 /* BOTONES */
 
 .boton {
-  background:var(--dorado);
-  color:#28131c;
-  border:none;
-  padding:15px 27px;
-  border-radius:30px;
-  font-size:15px;
-  margin-top:25px;
-  transition:.3s;
+  display: inline-block;
+  padding: 13px 25px;
+  border: 1px solid var(--dorado);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--dorado);
+  font-size: 15px;
+  transition: .3s;
 }
 
-.boton:active { transform:scale(.94); }
-
-.boton-secundario {
-  background:transparent;
-  color:var(--dorado);
-  border:1px solid var(--dorado);
-  padding:13px 22px;
-  border-radius:25px;
-  margin-top:20px;
+.boton:hover {
+  background: var(--dorado);
+  color: var(--fondo);
 }
 
-/* CORAZONES */
+/* PANTALLA DE ENTRADA */
 
-.corazon {
-  position:fixed;
-  bottom:-30px;
-  z-index:20;
-  pointer-events:none;
-  animation:subir linear forwards;
+#entrada {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: radial-gradient(circle, #421c2c, #190d12 75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 25px;
+  transition: opacity 1s, visibility 1s;
 }
 
-@keyframes subir {
-  to {
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
+#entrada.oculta {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#entrada h1 {
+  color: var(--dorado);
+  font-size: 29px;
+  margin-bottom: 15px;
+}
+
+#entrada p {
+  color: var(--suave);
+  margin-bottom: 30px;
+}
+
+.sobre {
+  width: 145px;
+  height: 100px;
+  background: #8b4055;
+  position: relative;
+  margin: 20px auto 35px;
+  border-radius: 5px;
+  animation: flotar 2s ease-in-out infinite;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 72px solid transparent;
+  border-right: 72px solid transparent;
+  border-top: 55px solid #b86b7c;
+  transform-origin: top;
+}
+
+.sello {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 30px;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* PORTADA */
 
 .hero {
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:30px 22px;
-  background:radial-gradient(ellipse,#542333,#29131d 55%,#13090e);
+  min-height: 100vh;
+  padding: 35px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, #421c2c 0%, #190d12 75%);
+}
+
+.hero .decoracion {
+  color: var(--dorado);
+  font-size: 22px;
+  letter-spacing: 8px;
+  margin-bottom: 25px;
 }
 
 .hero h1 {
-  font-size:clamp(43px,12vw,65px);
-  font-weight:normal;
-  line-height:1.15;
-  color:#f5e4d7;
+  color: var(--dorado);
+  font-size: clamp(35px, 9vw, 55px);
+  margin-bottom: 20px;
 }
 
 .hero p {
-  color:var(--suave);
-  line-height:1.9;
-  max-width:330px;
-  margin:20px auto;
+  max-width: 430px;
+  color: var(--suave);
+  font-size: 17px;
+  margin-bottom: 30px;
 }
 
-.corazon-centro {
-  font-size:37px;
-  color:var(--dorado);
-  margin:25px;
-  animation:latido 1.5s infinite;
+/* INTRODUCCIÓN */
+
+.intro {
+  max-width: 650px;
+  margin: auto;
 }
 
-@keyframes latido {
-  50% { transform:scale(1.2); }
-}
-
-section {
-  max-width:750px;
-  margin:auto;
-  padding:75px 22px;
-}
-
-.etiqueta-seccion {
-  color:var(--dorado);
-  letter-spacing:4px;
-  font-size:10px;
-  margin-bottom:18px;
-}
-
-h2 {
-  font-size:32px;
-  font-weight:normal;
-  color:#f4e3d7;
-  margin-bottom:22px;
-}
-
-.descripcion {
-  color:var(--suave);
-  line-height:1.9;
-  font-size:15px;
-}
-
-.divisor {
-  color:var(--dorado);
-  font-size:24px;
-  margin:35px;
+.intro p {
+  color: var(--suave);
+  font-size: 16px;
 }
 
 /* CARTA */
 
-.caja-carta {
-  background:linear-gradient(145deg,#351823,#24121a);
-  border:1px solid #d8b77966;
-  padding:30px 23px;
-  border-radius:15px;
-  margin-top:30px;
+.carta-contenedor {
+  max-width: 550px;
+  margin: 25px auto;
 }
 
 .carta {
-  display:none;
-  text-align:left;
-  color:#eadbd3;
-  font-size:16px;
-  line-height:2;
-  margin-top:25px;
-  white-space:pre-line;
+  display: none;
+  margin-top: 25px;
+  padding: 28px 23px;
+  border: 1px solid rgba(216,183,121,.5);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #421c2c, #25111a);
+  text-align: left;
+  animation: aparecer .8s ease;
 }
 
 .carta.visible {
-  display:block;
-  animation:aparecer .8s;
+  display: block;
+}
+
+.carta p {
+  color: var(--texto);
+  margin-bottom: 15px;
+}
+
+.carta .firma {
+  color: var(--dorado);
+  text-align: right;
+  font-style: italic;
 }
 
 @keyframes aparecer {
-  from { opacity:0; transform:translateY(15px); }
-  to { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* CONTADOR */
 
 .contador {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:9px;
-  margin-top:35px;
+  max-width: 600px;
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .contador-item {
-  background:#321923;
-  border:1px solid #d8b77944;
-  padding:18px 4px;
-  border-radius:12px;
+  padding: 18px 5px;
+  background: #421c2c;
+  border: 1px solid rgba(216,183,121,.35);
+  border-radius: 12px;
 }
 
 .contador-item strong {
-  display:block;
-  color:var(--dorado);
-  font-size:25px;
-  margin-bottom:7px;
+  display: block;
+  color: var(--dorado);
+  font-size: clamp(22px, 5vw, 30px);
 }
 
 .contador-item span {
-  color:var(--suave);
-  font-size:10px;
+  color: var(--suave);
+  font-size: 11px;
 }
 
-/* BOTÓN DE GALERÍA */
+/* GALERÍA */
+
+.galeria-intro {
+  max-width: 450px;
+  margin: 0 auto 25px;
+}
 
 .boton-camara {
-  width:100px;
-  height:100px;
-  margin:35px auto 0;
-  border-radius:50%;
-  border:1px solid var(--dorado);
-  background:linear-gradient(145deg,#512638,#27131d);
-  color:var(--dorado);
-  font-size:42px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 8px 30px #0006;
-  transition:.3s;
+  width: 65px;
+  height: 65px;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  background: #421c2c;
+  color: var(--dorado);
+  font-size: 28px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.3);
+  transition: .3s;
 }
 
-.boton-camara:active {
-  transform:scale(.92);
+.boton-camara:hover {
+  transform: scale(1.08);
+  background: #633044;
 }
 
-.texto-camara {
-  color:var(--suave);
-  font-size:13px;
-  margin-top:15px;
+/* MODAL GALERÍA */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(15, 5, 10, .97);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
 }
 
-/* VENTANA DE GALERÍA */
-
-.modal-galeria {
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  background:#13090ef5;
-  display:none;
-  overflow-y:auto;
-  padding:25px 15px 40px;
+.modal.activo {
+  display: flex;
 }
 
-.modal-galeria.visible {
-  display:block;
-  animation:aparecer .35s;
+.modal-contenido {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  animation: aparecer .4s ease;
 }
 
-.modal-cabecera {
-  max-width:750px;
-  margin:0 auto 25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.modal-cabecera h2 {
-  color:var(--dorado);
-  font-size:25px;
-  margin:0;
+.modal-titulo {
+  color: var(--dorado);
+  font-size: 26px;
+  margin-bottom: 25px;
 }
 
 .cerrar-modal {
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:1px solid var(--dorado);
-  background:#351823;
-  color:var(--dorado);
-  font-size:25px;
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: var(--dorado);
+  background: transparent;
+  border: none;
+  font-size: 35px;
 }
 
-.galeria {
-  max-width:750px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:13px;
+.lista-fotos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
-.foto {
-  min-width:0;
-  position:relative;
-  background:linear-gradient(145deg,#512638,#27131d);
-  border:1px solid #d8b77966;
-  border-radius:12px;
-  overflow:hidden;
-  cursor:pointer;
+.foto-miniatura {
+  border: 1px solid rgba(216,183,121,.5);
+  background: #421c2c;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 7px;
+  color: var(--texto);
 }
 
-.foto img {
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  display:block;
-  transition:transform .3s;
+.foto-miniatura img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 7px;
+  display: block;
 }
 
-.foto:active img {
-  transform:scale(.97);
+.foto-miniatura p {
+  padding: 9px 3px 3px;
+  font-size: 13px;
 }
 
-.foto small {
-  display:block;
-  color:var(--suave);
-  font-size:12px;
-  padding:12px 5px;
-}
-
-/* FOTO EN PANTALLA GRANDE */
+/* FOTO GRANDE */
 
 .modal-foto {
-  position:fixed;
-  inset:0;
-  z-index:3000;
-  background:#090609f7;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:45px 12px 20px;
+  background: rgba(0,0,0,.97);
 }
 
-.modal-foto.visible {
-  display:flex;
-  animation:aparecer .3s;
+.foto-grande-contenido {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
 }
 
-.modal-foto img {
-  max-width:100%;
-  max-height:85vh;
-  object-fit:contain;
-  border-radius:8px;
-  box-shadow:0 10px 40px #000;
+.foto-grande-contenido img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
-.cerrar-foto {
-  position:absolute;
-  top:12px;
-  right:15px;
-  width:42px;
-  height:42px;
-  border:1px solid var(--dorado);
-  border-radius:50%;
-  background:#351823;
-  color:var(--dorado);
-  font-size:25px;
+.descripcion-foto {
+  color: var(--dorado);
+  margin-top: 15px;
 }
 
 /* CANCIÓN */
 
-.caja-musica {
-  margin-top:30px;
-  padding:30px 20px;
-  background:linear-gradient(145deg,#351823,#24121a);
-  border:1px solid #d8b77966;
-  border-radius:15px;
+.cancion-contenedor {
+  max-width: 550px;
+  margin: 25px auto 0;
+  padding: 22px;
+  background: linear-gradient(145deg, #421c2c, #25111a);
+  border: 1px solid rgba(216,183,121,.4);
+  border-radius: 18px;
 }
 
-.disco {
-  width:95px;
-  height:95px;
-  margin:0 auto 20px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle,#d8b779 0 8%,#321923 9% 15%,#171014 16% 45%,#49303a 46% 48%,#171014 49%);
-  border:2px solid #d8b77988;
-  display:grid;
-  place-items:center;
-  color:var(--dorado);
-  font-size:24px;
-  box-shadow:0 5px 25px #0007;
+.cancion-contenedor p {
+  color: var(--suave);
+  margin-bottom: 18px;
 }
 
-.caja-musica p {
-  color:var(--suave);
-  line-height:1.8;
-  font-size:15px;
-}
-
-.reproductor {
-  display:none;
-  margin-top:25px;
-  animation:aparecer .8s;
-}
-
-.reproductor iframe {
-  width:100%;
-  max-width:500px;
-  height:230px;
-  border:1px solid #d8b77966;
-  border-radius:12px;
+.cancion-contenedor iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
 }
 
 .enlace-youtube {
-  display:inline-block;
-  margin-top:18px;
-  color:var(--dorado);
-  font-size:14px;
-  text-decoration:underline;
-  line-height:1.7;
+  display: inline-block;
+  color: var(--dorado);
+  margin-top: 15px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-/* FINAL */
+/* DEDICATORIA ESPECIAL */
+
+.dedicatoria-especial {
+  padding: 65px 22px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.tarjeta-dedicatoria {
+  width: 100%;
+  max-width: 580px;
+  padding: 38px 25px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(216,183,121,.55);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #421c2c, #2b111c 75%, #190d12);
+  box-shadow: 0 12px 35px rgba(0,0,0,.3);
+}
+
+.tarjeta-dedicatoria::before {
+  content: "♡";
+  position: absolute;
+  top: 8px;
+  right: 17px;
+  color: rgba(216,183,121,.15);
+  font-size: 75px;
+}
+
+.dedicatoria-etiqueta {
+  color: var(--dorado);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 27px;
+}
+
+.dedicatoria-introduccion {
+  color: var(--texto);
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 400;
+  margin: 0 auto 25px;
+}
+
+.dedicatoria-separador {
+  color: var(--dorado);
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin: 20px 0;
+}
+
+.dedicatoria-frase {
+  color: var(--dorado);
+  font-size: clamp(27px, 7vw, 36px);
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.3;
+  margin: 20px 0 28px;
+}
+
+.dedicatoria-mensaje {
+  color: var(--suave);
+  font-size: 15px;
+  line-height: 2;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.dedicatoria-firma {
+  color: var(--dorado);
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  margin-top: 28px;
+}
+
+.dedicatoria-corazones {
+  font-size: 19px;
+  margin-top: 13px;
+  letter-spacing: 5px;
+}
+
+.dedicatoria-pie {
+  color: var(--suave);
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 22px;
+}
+
+/* MENSAJE FINAL */
 
 .final {
-  background:linear-gradient(145deg,#421d2b,#190d12);
-  padding:80px 22px;
+  padding: 75px 22px;
+  text-align: center;
+  background: radial-gradient(circle, #421c2c, #190d12 75%);
 }
 
-.final h2 { color:var(--dorado); }
+.final h2 {
+  color: var(--dorado);
+  font-size: clamp(30px, 8vw, 42px);
+  margin-bottom: 20px;
+}
+
+.final p {
+  max-width: 500px;
+  margin: auto;
+  color: var(--suave);
+}
+
+/* PIE DE PÁGINA */
 
 footer {
-  padding:25px;
-  color:#a58c88;
-  font-size:12px;
+  padding: 25px 15px;
+  color: var(--suave);
+  text-align: center;
+  font-size: 12px;
 }
 
-@media(max-width:350px) {
-  .contador { gap:5px; }
-  .contador-item strong { font-size:19px; }
-  .contador-item span { font-size:9px; }
+/* CORAZONES FLOTANTES */
 
-  .foto img { height:155px; }
+.corazon-flotante {
+  position: fixed;
+  bottom: -30px;
+  z-index: 5;
+  pointer-events: none;
+  animation: subir 7s linear forwards;
+  opacity: .7;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* MÓVILES */
+
+@media (max-width: 480px) {
+  .contador {
+    gap: 6px;
+  }
+
+  .contador-item {
+    padding: 14px 3px;
+  }
+
+  .contador-item span {
+    font-size: 10px;
+  }
+
+  .tarjeta-dedicatoria {
+    padding: 32px 20px;
+  }
+
+  .dedicatoria-introduccion {
+    font-size: 19px;
+  }
+
+  .foto-miniatura img {
+    height: 120px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ENTRADA -->
+<!-- PANTALLA DE BIENVENIDA -->
 
 <div id="entrada">
-  <div class="entrada-contenido">
 
-    <div class="etiqueta">UNA SORPRESA PARA TI</div>
+  <h1>Para mi niña hermosa ❤️</h1>
 
-    <h1>Mi niña hermosa</h1>
+  <p>Abre esto cuando quieras recordar cuánto te amo</p>
 
-    <p>🩵 🩷 💛</p>
-
-    <p>
-      Abre esto cuando quieras recordar
-      cuánto te amo.
-    </p>
-
-    <div class="sobre">
-      <div class="sello">♥</div>
-    </div>
-
-    <p>He preparado algo especialmente para ti.</p>
-
-    <button class="boton" id="abrirRegalo">
-      Abrir mi regalo 💌
-    </button>
-
+  <div class="sobre">
+    <div class="sello">❤️</div>
   </div>
+
+  <button class="boton" id="abrirRegalo">
+    Abrir mi regalo
+  </button>
+
 </div>
 
 <!-- PORTADA -->
 
-<header class="hero">
-  <div>
-    <div class="etiqueta-seccion">UNA HISTORIA ESPECIAL</div>
+<header class="hero" id="inicio">
 
-    <h1>Para el amor<br>de mi vida</h1>
+  <div class="decoracion">♡ ✦ ♡</div>
 
-    <div class="corazon-centro">♥</div>
+  <h1>Para el amor de mi vida</h1>
 
-    <p>
-      Hay personas que llegan a nuestra vida
-      y hacen que todo sea más bonito.
-      Tú eres esa persona para mí.
-    </p>
+  <p>
+    Hay personas que llegan a nuestra vida
+    y hacen que todo tenga un significado diferente.
+    Tú eres una de ellas.
+  </p>
 
-    <button class="boton" onclick="irA('carta')">
-      Tengo algo para ti ❤️
-    </button>
-  </div>
+  <button class="boton" onclick="irA('introduccion')">
+    Descubre tu regalo ❤️
+  </button>
+
 </header>
 
 <!-- INTRODUCCIÓN -->
 
-<section>
-  <div class="etiqueta-seccion">NUESTRA HISTORIA</div>
-  <h2>Un sentimiento único</h2>
+<section class="seccion" id="introduccion">
 
-  <p class="descripcion">
-    No necesito una ocasión especial para recordarte
-    lo importante que eres para mí.
+  <div class="intro">
 
-    Simplemente quería crear algo que pudieras
-    visitar cada vez que quieras recordar
-    cuánto te quiero.
-  </p>
+    <h2 class="titulo">Mi niña hermosa 🩵🩷💛</h2>
 
-  <div class="divisor">✦ ♥ ✦</div>
+    <p>
+      Preparé este pequeño espacio para ti,
+      porque quiero que tengas un lugar al que puedas volver
+      cuando quieras recordar lo especial que eres para mí.
+    </p>
+
+  </div>
+
 </section>
 
 <!-- CARTA -->
 
-<section id="carta">
-  <div class="etiqueta-seccion">CON TODO MI CORAZÓN</div>
-  <h2>Una carta para ti</h2>
+<section class="seccion" id="carta">
 
-  <p class="descripcion">
-    Hay palabras que merecen un lugar especial.
+  <h2 class="titulo">Una carta para ti 💌</h2>
+
+  <p class="texto-suave">
+    Hay algo que quiero decirte...
   </p>
 
-  <div class="caja-carta">
+  <div class="carta-contenedor">
 
-    <div style="font-size:40px">💌</div>
-
-    <h3 style="font-weight:normal;margin-top:12px">
-      Mi niña hermosa 🩵🩷💛
-    </h3>
-
-    <button class="boton" id="botonCarta">
+    <button class="boton" id="mostrarCarta">
       Abrir mi carta
     </button>
 
-    <div class="carta" id="textoCarta">Mi niña hermosa:
+    <div class="carta" id="contenidoCarta">
 
-Quiero que sepas lo feliz que me hace
-tenerte en mi vida.
+      <p>
+        Mi niña hermosa, quiero que sepas lo importante
+        que eres para mí. Desde que llegaste a mi vida,
+        has hecho que muchos momentos sean más especiales.
+      </p>
 
-Gracias por cada sonrisa, cada momento,
-cada abrazo y cada recuerdo que hemos
-construido juntos.
+      <p>
+        No prometo que todo será perfecto, pero sí quiero
+        seguir poniendo de mi parte, cuidando lo nuestro
+        y demostrando con hechos cuánto te quiero.
+      </p>
 
-No prometo que todos los días sean
-perfectos, pero sí quiero seguir
-construyendo momentos bonitos contigo.
+      <p>
+        Gracias por ser parte de mi vida y por cada recuerdo
+        que estamos construyendo juntos.
+      </p>
 
-Eres una persona muy especial para mí
-y espero que nunca olvides lo mucho
-que significas en mi vida.
+      <p class="firma">
+        Con todo mi cariño, para ti. ❤️
+      </p>
 
-Con todo mi amor. ❤️</div>
+    </div>
+
   </div>
+
 </section>
 
 <!-- CONTADOR -->
 
-<section>
-  <div class="etiqueta-seccion">DESDE QUE COMENZÓ TODO</div>
-  <h2>Nuestro tiempo juntos</h2>
+<section class="seccion" id="contador">
 
-  <p class="descripcion">
-    Cada día contigo es un motivo más
-    para agradecer esta historia.
+  <h2 class="titulo">Nuestra historia ❤️</h2>
+
+  <p class="texto-suave">
+    Cada segundo a tu lado es un recuerdo que vale la pena.
   </p>
 
   <div class="contador">
+
     <div class="contador-item">
       <strong id="dias">0</strong>
       <span>DÍAS</span>
@@ -652,170 +710,244 @@ Con todo mi amor. ❤️</div>
       <strong id="segundos">0</strong>
       <span>SEGUNDOS</span>
     </div>
+
   </div>
-</section>
 
-<!-- RECUERDOS -->
-
-<section id="recuerdos">
-
-  <div class="etiqueta-seccion">NUESTROS RECUERDOS</div>
-
-  <h2>Momentos que valen oro</h2>
-
-  <p class="descripcion">
-    Cada fotografía guarda un pedacito de nuestra historia.
-    Quiero conservar muchos momentos contigo.
+  <p class="texto-suave" style="margin-top:20px;">
+    Desde el 5 de abril de 2026.
   </p>
 
-  <!-- ÚNICO BOTÓN PARA ABRIR LA GALERÍA -->
+</section>
+
+<!-- GALERÍA -->
+
+<section class="seccion" id="recuerdos">
+
+  <h2 class="titulo">Nuestros recuerdos 📸</h2>
+
+  <p class="texto-suave galeria-intro">
+    Pequeños momentos que merecen quedarse para siempre.
+    Toca la cámara para ver nuestros recuerdos.
+  </p>
 
   <button
     class="boton-camara"
     id="abrirGaleria"
-    aria-label="Abrir nuestros recuerdos"
-    title="Abrir nuestros recuerdos">
+    aria-label="Abrir galería de recuerdos"
+  >
     📷
   </button>
 
-  <p class="texto-camara">
-    Toca la cámara para ver nuestros recuerdos.
-  </p>
-
 </section>
 
-<!-- VENTANA DE GALERÍA -->
+<!-- MODAL GALERÍA -->
 
-<div class="modal-galeria" id="modalGaleria">
+<div class="modal" id="modalGaleria">
 
-  <div class="modal-cabecera">
-    <h2>Nuestros recuerdos ❤️</h2>
+  <button class="cerrar-modal" id="cerrarGaleria">×</button>
 
-    <button
-      class="cerrar-modal"
-      id="cerrarGaleria"
-      aria-label="Cerrar galería">
-      ×
-    </button>
+  <div class="modal-contenido">
+
+    <h2 class="modal-titulo">Nuestros recuerdos ❤️</h2>
+
+    <div class="lista-fotos" id="listaFotos"></div>
+
   </div>
-
-  <div class="galeria" id="listaFotos"></div>
 
 </div>
 
-<!-- VISOR DE FOTO GRANDE -->
+<!-- MODAL FOTO GRANDE -->
 
-<div class="modal-foto" id="modalFoto">
+<div class="modal modal-foto" id="modalFoto">
 
-  <button
-    class="cerrar-foto"
-    id="cerrarFoto"
-    aria-label="Cerrar fotografía">
-    ×
-  </button>
+  <button class="cerrar-modal" id="cerrarFoto">×</button>
 
-  <img id="fotoGrande" src="" alt="Nuestro recuerdo">
+  <div class="foto-grande-contenido">
+
+    <img id="imagenGrande" src="" alt="Nuestro recuerdo">
+
+    <p class="descripcion-foto" id="descripcionGrande"></p>
+
+  </div>
 
 </div>
 
 <!-- CANCIÓN -->
 
-<section id="musica">
+<section class="seccion" id="cancion">
 
-  <div class="etiqueta-seccion">UNA MELODÍA PARA TI</div>
+  <h2 class="titulo">Una canción para ti 🎶</h2>
 
-  <h2>Nuestra canción 🎵</h2>
-
-  <p class="descripcion">
-    Hay canciones que nos recuerdan a alguien,
-    y esta es una de esas canciones que quiero dedicarte.
+  <p class="texto-suave">
+    Porque hay canciones que dicen lo que a veces
+    las palabras no pueden expresar.
   </p>
 
-  <div class="caja-musica">
+  <div class="cancion-contenedor">
 
-    <div class="disco">♥</div>
+    <p>Esta canción me recuerda a ti ❤️</p>
 
-    <h3 style="font-weight:normal;color:var(--dorado);margin-bottom:15px;">
-      Para mi niña hermosa
-    </h3>
+    <iframe
+      src="https://www.youtube.com/embed/7XPmRUp_Yf4?playsinline=1&controls=1&rel=0"
+      title="Una canción para ti"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
 
-    <p>
-      Quiero que la escuches cuando quieras,
-      porque también hay sentimientos que se expresan con música.
-    </p>
-
-    <button class="boton" id="botonMusica">
-      ▶ Escuchar nuestra canción
-    </button>
-
-    <div class="reproductor" id="reproductor">
-
-      <iframe
-        id="videoYoutube"
-        title="Nuestra canción"
-        src=""
-        allow="autoplay; encrypted-media; picture-in-picture"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-
-      <a
-        class="enlace-youtube"
-        href="https://www.youtube.com/watch?v=7XPmRUp_Yf4"
-        target="_blank"
-        rel="noopener noreferrer">
-        Si no puedes reproducirla aquí, escúchala directamente en YouTube.
-      </a>
-
-    </div>
+    <a
+      class="enlace-youtube"
+      href="https://www.youtube.com/watch?v=7XPmRUp_Yf4"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Si no puedes reproducirla aquí, escúchala directamente en YouTube ❤️
+    </a>
 
   </div>
 
 </section>
 
-<!-- FINAL -->
+<!-- DEDICATORIA ESPECIAL -->
 
-<div class="final">
+<section class="dedicatoria-especial" id="dedicatoria">
 
-  <div class="corazon-centro">♥</div>
+  <div class="tarjeta-dedicatoria">
 
-  <h2>
-    Mi lugar favorito<br>
-    siempre será a tu lado
-  </h2>
+    <p class="dedicatoria-etiqueta">
+      ♡ UNA PROMESA PARA TI ♡
+    </p>
 
-  <p class="descripcion">
+    <p class="dedicatoria-introduccion">
+      Y si algún día dudas de lo mucho que significas para mí...
+    </p>
+
+    <div class="dedicatoria-separador">
+      ✦ ─────── ♡ ─────── ✦
+    </div>
+
+    <h2 class="dedicatoria-frase">
+      Recuerda que te amo
+    </h2>
+
+    <p class="dedicatoria-mensaje">
+      No sé qué nos tenga preparado el futuro,
+      pero quiero seguir compartiendo momentos contigo,
+      cuidando lo nuestro y construyendo recuerdos
+      que nos hagan sonreír.
+    </p>
+
+    <div class="dedicatoria-separador">
+      ♡
+    </div>
+
+    <p class="dedicatoria-firma">
+      Mi niña hermosa
+    </p>
+
+    <div class="dedicatoria-corazones">
+      🩵 🩷 💛
+    </div>
+
+    <p class="dedicatoria-pie">
+      Un pedacito de mi corazón para ti.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- MENSAJE FINAL -->
+
+<section class="final" id="final">
+
+  <h2>Te amo ❤️</h2>
+
+  <p>
+    No importa cuántas páginas tenga este regalo,
+    ninguna sería suficiente para expresar todo
+    lo que significas para mí.
     Gracias por ser parte de mi historia.
-    Lo mejor de nosotros todavía está por escribirse.
   </p>
 
-  <div class="divisor">Con amor, siempre ❤️</div>
-
-  <p>Mi niña hermosa 🩵🩷💛</p>
-
-</div>
+</section>
 
 <footer>
-  Hecho con amor, especialmente para ti.
-  <br><br>
-  © Nuestra historia ❤️
+  Hecho con mucho amor para mi niña hermosa ❤️
 </footer>
 
 <script>
 
-// ======================================
-// FOTOGRAFÍAS DE LA GALERÍA
-// ======================================
+/* ABRIR REGALO */
 
-// PARA AGREGAR OTRA FOTO EN EL FUTURO:
-// 1. Sube la fotografía a la raíz del repositorio.
-// 2. Copia su nombre exacto.
-// 3. Agrega una línea más siguiendo este ejemplo:
-//
-// {
-//   archivo: "nombre-de-la-foto.jpg",
-//   descripcion: "Un momento especial"
-// }
+const entrada = document.getElementById("entrada");
+
+document.getElementById("abrirRegalo").addEventListener("click", () => {
+
+  entrada.classList.add("oculta");
+
+  setTimeout(() => {
+    entrada.style.display = "none";
+  }, 1000);
+
+});
+
+/* NAVEGACIÓN */
+
+function irA(id) {
+
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+/* ABRIR Y CERRAR CARTA */
+
+document.getElementById("mostrarCarta").addEventListener("click", function() {
+
+  const carta = document.getElementById("contenidoCarta");
+
+  carta.classList.toggle("visible");
+
+  this.textContent = carta.classList.contains("visible")
+    ? "Cerrar mi carta"
+    : "Abrir mi carta";
+
+});
+
+/* CONTADOR DESDE EL 5 DE ABRIL DE 2026 */
+
+const fechaInicio = new Date(2026, 3, 5, 0, 0, 0);
+
+function actualizarContador() {
+
+  const ahora = new Date();
+
+  let diferencia = ahora - fechaInicio;
+
+  if (diferencia < 0) {
+    diferencia = 0;
+  }
+
+  const segundosTotales = Math.floor(diferencia / 1000);
+
+  const dias = Math.floor(segundosTotales / 86400);
+  const horas = Math.floor((segundosTotales % 86400) / 3600);
+  const minutos = Math.floor((segundosTotales % 3600) / 60);
+  const segundos = segundosTotales % 60;
+
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = horas;
+  document.getElementById("minutos").textContent = minutos;
+  document.getElementById("segundos").textContent = segundos;
+
+}
+
+actualizarContador();
+setInterval(actualizarContador, 1000);
+
+/* FOTOGRAFÍAS: AGREGAR NUEVOS RECUERDOS DESDE ESTE ARRAY */
 
 const fotos = [
 
@@ -826,133 +958,35 @@ const fotos = [
 
 ];
 
-// ABRIR Y CERRAR EL REGALO
+/* CONSTRUIR GALERÍA */
 
-document.getElementById("abrirRegalo")
-.addEventListener("click",function(){
+const listaFotos = document.getElementById("listaFotos");
 
-  document.getElementById("entrada")
-  .classList.add("cerrar");
+function cargarGaleria() {
 
-  crearCorazones(18);
+  listaFotos.innerHTML = "";
 
-});
+  fotos.forEach((foto, indice) => {
 
-// NAVEGACIÓN
+    const tarjeta = document.createElement("button");
 
-function irA(id){
-  document.getElementById(id)
-  .scrollIntoView({behavior:"smooth"});
-}
+    tarjeta.className = "foto-miniatura";
+    tarjeta.type = "button";
 
-// CARTA
+    const imagen = document.createElement("img");
+    imagen.src = foto.archivo;
+    imagen.alt = foto.descripcion;
+    imagen.loading = "lazy";
 
-const botonCarta=document.getElementById("botonCarta");
-const textoCarta=document.getElementById("textoCarta");
-
-botonCarta.addEventListener("click",function(){
-
-  textoCarta.classList.toggle("visible");
-
-  botonCarta.textContent=
-    textoCarta.classList.contains("visible")
-    ? "Cerrar mi carta"
-    : "Abrir mi carta";
-
-});
-
-// CONTADOR
-
-const fechaInicio=new Date(2026,3,5,0,0,0);
-
-function actualizarContador(){
-
-  const ahora=new Date();
-  let diferencia=ahora-fechaInicio;
-
-  if(diferencia<0)diferencia=0;
-
-  const dias=Math.floor(diferencia/86400000);
-  const horas=Math.floor((diferencia%86400000)/3600000);
-  const minutos=Math.floor((diferencia%3600000)/60000);
-  const segundos=Math.floor((diferencia%60000)/1000);
-
-  document.getElementById("dias").textContent=dias;
-  document.getElementById("horas").textContent=horas;
-  document.getElementById("minutos").textContent=minutos;
-  document.getElementById("segundos").textContent=segundos;
-
-}
-
-actualizarContador();
-setInterval(actualizarContador,1000);
-
-// CORAZONES
-
-function crearCorazones(cantidad){
-
-  for(let i=0;i<cantidad;i++){
-
-    const corazon=document.createElement("div");
-
-    corazon.className="corazon";
-    corazon.textContent=["♥","♡","💗"][i%3];
-
-    corazon.style.left=Math.random()*100+"vw";
-    corazon.style.fontSize=(15+Math.random()*18)+"px";
-    corazon.style.animationDuration=(4+Math.random()*4)+"s";
-
-    document.body.appendChild(corazon);
-
-    setTimeout(()=>corazon.remove(),8500);
-
-  }
-
-}
-
-// ======================================
-// GALERÍA Y FOTOGRAFÍAS EN PANTALLA GRANDE
-// ======================================
-
-const botonGaleria=document.getElementById("abrirGaleria");
-const modalGaleria=document.getElementById("modalGaleria");
-const cerrarGaleria=document.getElementById("cerrarGaleria");
-const listaFotos=document.getElementById("listaFotos");
-
-const modalFoto=document.getElementById("modalFoto");
-const fotoGrande=document.getElementById("fotoGrande");
-const cerrarFoto=document.getElementById("cerrarFoto");
-
-// CONSTRUIR LA GALERÍA DESDE EL CÓDIGO
-
-function cargarGaleria(){
-
-  listaFotos.innerHTML="";
-
-  fotos.forEach(function(foto){
-
-    const tarjeta=document.createElement("div");
-    tarjeta.className="foto";
-
-    const imagen=document.createElement("img");
-    imagen.src=foto.archivo;
-    imagen.alt=foto.descripcion;
-    imagen.loading="lazy";
-
-    const descripcion=document.createElement("small");
-    descripcion.textContent=foto.descripcion;
-
-    imagen.addEventListener("click",function(){
-
-      fotoGrande.src=foto.archivo;
-      fotoGrande.alt=foto.descripcion;
-
-      modalFoto.classList.add("visible");
-
-    });
+    const descripcion = document.createElement("p");
+    descripcion.textContent = foto.descripcion;
 
     tarjeta.appendChild(imagen);
     tarjeta.appendChild(descripcion);
+
+    tarjeta.addEventListener("click", () => {
+      abrirFoto(indice);
+    });
 
     listaFotos.appendChild(tarjeta);
 
@@ -960,96 +994,105 @@ function cargarGaleria(){
 
 }
 
-// ABRIR GALERÍA
+cargarGaleria();
 
-botonGaleria.addEventListener("click",function(){
+/* ABRIR GALERÍA */
 
-  cargarGaleria();
-  modalGaleria.classList.add("visible");
+const modalGaleria = document.getElementById("modalGaleria");
 
-});
+document.getElementById("abrirGaleria").addEventListener("click", () => {
 
-// CERRAR GALERÍA
-
-cerrarGaleria.addEventListener("click",function(){
-
-  modalGaleria.classList.remove("visible");
+  modalGaleria.classList.add("activo");
 
 });
 
-// CERRAR AL TOCAR EL FONDO
+document.getElementById("cerrarGaleria").addEventListener("click", () => {
 
-modalGaleria.addEventListener("click",function(event){
-
-  if(event.target===modalGaleria){
-    modalGaleria.classList.remove("visible");
-  }
+  modalGaleria.classList.remove("activo");
 
 });
 
-// CERRAR FOTO GRANDE
+/* ABRIR FOTO A PANTALLA GRANDE */
 
-function cerrarFotoGrande(){
+const modalFoto = document.getElementById("modalFoto");
 
-  modalFoto.classList.remove("visible");
-  fotoGrande.src="";
+function abrirFoto(indice) {
+
+  const foto = fotos[indice];
+
+  document.getElementById("imagenGrande").src = foto.archivo;
+
+  document.getElementById("descripcionGrande").textContent =
+    foto.descripcion;
+
+  modalGaleria.classList.remove("activo");
+  modalFoto.classList.add("activo");
 
 }
 
-cerrarFoto.addEventListener("click",cerrarFotoGrande);
+/* CERRAR FOTO */
 
-modalFoto.addEventListener("click",function(event){
+document.getElementById("cerrarFoto").addEventListener("click", () => {
 
-  if(event.target===modalFoto){
-    cerrarFotoGrande();
+  modalFoto.classList.remove("activo");
+
+});
+
+/* CERRAR MODALES AL TOCAR FUERA */
+
+modalGaleria.addEventListener("click", (evento) => {
+
+  if (evento.target === modalGaleria) {
+    modalGaleria.classList.remove("activo");
   }
 
 });
 
-// CERRAR CON LA TECLA ESCAPE
+modalFoto.addEventListener("click", (evento) => {
 
-document.addEventListener("keydown",function(event){
+  if (evento.target === modalFoto) {
+    modalFoto.classList.remove("activo");
+  }
 
-  if(event.key==="Escape"){
+});
 
-    cerrarFotoGrande();
-    modalGaleria.classList.remove("visible");
+/* CERRAR CON ESCAPE */
+
+document.addEventListener("keydown", (evento) => {
+
+  if (evento.key === "Escape") {
+
+    modalGaleria.classList.remove("activo");
+    modalFoto.classList.remove("activo");
 
   }
 
 });
 
-// ======================================
-// CANCIÓN DE YOUTUBE
-// ======================================
+/* CORAZONES FLOTANTES */
 
-const ID_CANCION="7XPmRUp_Yf4";
+function crearCorazon() {
 
-const botonMusica=document.getElementById("botonMusica");
-const reproductor=document.getElementById("reproductor");
-const videoYoutube=document.getElementById("videoYoutube");
+  const corazon = document.createElement("div");
 
-botonMusica.addEventListener("click",function(){
+  corazon.className = "corazon-flotante";
+  corazon.textContent = Math.random() > 0.5 ? "♡" : "♥";
 
-  if(!videoYoutube.src){
+  corazon.style.left = Math.random() * 100 + "vw";
+  corazon.style.fontSize = (14 + Math.random() * 15) + "px";
+  corazon.style.color = Math.random() > 0.5
+    ? "#d8b779"
+    : "#c76b85";
 
-    videoYoutube.src=
-      "https://www.youtube.com/embed/"+
-      ID_CANCION+
-      "?playsinline=1&controls=1&rel=0";
+  document.body.appendChild(corazon);
 
-  }
+  setTimeout(() => {
+    corazon.remove();
+  }, 7000);
 
-  reproductor.style.display="block";
+}
 
-  botonMusica.textContent="Nuestra canción está aquí ❤️";
-
-  reproductor.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-  });
-
-});
+setInterval(crearCorazon, 1800);
 
 </script>
 
