@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#300d20">
+  <meta name="theme-color" content="#310d20">
   <title>Para el amor de mi vida 🩵</title>
 
   <style>
     :root {
-      --vino: #300d20;
-      --vino-claro: #51172f;
-      --dorado: #e8c477;
-      --rosa: #f3b6c8;
-      --azul: #a9ddec;
-      --amarillo: #f5df91;
-      --blanco: #fff8f4;
+      --vino: #310d20;
+      --vino-claro: #571b35;
+      --dorado: #e8c47b;
+      --rosa: #f4b8cc;
+      --azul: #b9dff0;
+      --crema: #fff5ed;
     }
 
     * {
@@ -24,13 +23,14 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      min-height: 100vh;
       font-family: Georgia, "Times New Roman", serif;
-      color: var(--blanco);
-      background:
-        radial-gradient(ellipse at top, #68213e 0%, transparent 55%),
-        linear-gradient(145deg, #180812, var(--vino) 55%, #170812);
+      background: var(--vino);
+      color: var(--crema);
       overflow-x: hidden;
     }
 
@@ -42,604 +42,596 @@
       cursor: pointer;
     }
 
-    .corazones {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .corazon {
-      position: absolute;
-      bottom: -40px;
-      opacity: .18;
-      animation: subir 12s linear infinite;
-    }
-
-    @keyframes subir {
-      from { transform: translateY(0) rotate(0deg); opacity: 0; }
-      15% { opacity: .2; }
-      to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
-    }
-
-    .contenedor {
-      position: relative;
-      z-index: 1;
-      width: min(900px, 92%);
-      margin: auto;
-      padding: 30px 0 55px;
-    }
-
-    .portada {
-      min-height: 85vh;
+    .inicio {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 25px;
       text-align: center;
-      gap: 22px;
+      background:
+        radial-gradient(circle at top, #71304c 0%, transparent 55%),
+        linear-gradient(145deg, #210817, #45152d);
     }
 
     .sobre {
-      width: 190px;
-      height: 135px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      font-size: 75px;
-      filter: drop-shadow(0 12px 20px #0008);
-      animation: latido 2s infinite;
+      width: 100%;
+      max-width: 430px;
+      padding: 38px 25px;
+      border: 1px solid var(--dorado);
+      border-radius: 22px;
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 40px rgba(0,0,0,.3);
     }
 
-    @keyframes latido {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.07); }
+    .sobre .corazon {
+      font-size: 55px;
+      margin-bottom: 18px;
+      animation: latido 1.5s infinite;
     }
 
-    .portada h1 {
+    .sobre h1 {
       color: var(--dorado);
-      font-size: clamp(2rem, 7vw, 3.4rem);
-      line-height: 1.15;
+      font-size: 30px;
+      margin-bottom: 16px;
     }
 
-    .portada p {
-      color: #f7dce5;
-      font-size: 1.15rem;
-      line-height: 1.6;
+    .sobre p {
+      line-height: 1.7;
+      font-size: 17px;
+      margin-bottom: 25px;
     }
 
     .boton {
-      border: 1px solid var(--dorado);
+      border: none;
       border-radius: 30px;
       padding: 13px 25px;
-      background: linear-gradient(135deg, #e8c477, #c99a4d);
-      color: #32101f;
+      background: linear-gradient(135deg, #e8c47b, #f5dca7);
+      color: #351326;
       font-weight: bold;
-      box-shadow: 0 5px 18px #0004;
-      transition: transform .2s, filter .2s;
+      box-shadow: 0 5px 20px rgba(0,0,0,.25);
+      transition: transform .2s;
     }
 
-    .boton:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
+    .boton:active {
+      transform: scale(.96);
     }
 
-    .seccion {
+    #contenido {
       display: none;
-      animation: aparecer .8s ease;
     }
 
-    .seccion.visible {
-      display: block;
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .encabezado {
+    header {
+      min-height: 90vh;
+      padding: 90px 22px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin: 25px 0 30px;
+      background:
+        radial-gradient(circle at 20% 20%, #71304c, transparent 45%),
+        linear-gradient(160deg, #260a19, #4a1832);
     }
 
-    .encabezado h2 {
+    .etiqueta {
       color: var(--dorado);
-      font-size: clamp(1.8rem, 6vw, 2.6rem);
-      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 22px;
     }
 
-    .encabezado p {
-      color: #f5dce4;
-      line-height: 1.6;
+    header h1 {
+      font-size: clamp(35px, 9vw, 58px);
+      line-height: 1.2;
+      color: var(--crema);
+      margin-bottom: 18px;
     }
 
-    .tarjeta {
-      background: linear-gradient(145deg, #ffffff12, #ffffff08);
-      border: 1px solid #e8c47755;
-      border-radius: 20px;
-      padding: clamp(20px, 5vw, 35px);
-      box-shadow: 0 12px 35px #0003;
+    header h1 span {
+      color: var(--rosa);
+    }
+
+    header p {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #f7dce7;
+    }
+
+    .adorno {
+      font-size: 32px;
+      margin-top: 25px;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .titulo {
+      color: var(--dorado);
+      font-size: clamp(27px, 6vw, 37px);
       margin-bottom: 25px;
-      backdrop-filter: blur(8px);
+    }
+
+    .subtitulo {
+      color: var(--rosa);
+      font-size: 17px;
+      margin-bottom: 28px;
+      line-height: 1.7;
     }
 
     .carta {
-      color: #fff1e9;
-      font-size: 1.12rem;
-      line-height: 1.95;
-      white-space: pre-line;
+      background: #fff4ed;
+      color: #482338;
+      padding: 30px 23px;
+      border-radius: 16px;
+      text-align: left;
+      line-height: 1.9;
+      font-size: 17px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.2);
+      border: 1px solid var(--dorado);
+    }
+
+    .carta p {
+      margin-bottom: 16px;
     }
 
     .firma {
       text-align: right;
-      color: var(--dorado);
+      color: #9b4669;
       font-style: italic;
-      margin-top: 22px;
-      font-size: 1.2rem;
+      font-size: 19px;
+      margin-top: 25px;
     }
 
     .contador {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 28px;
     }
 
     .tiempo {
-      background: #ffffff12;
-      border: 1px solid #e8c47755;
-      border-radius: 14px;
-      text-align: center;
-      padding: 17px 5px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(232,196,123,.6);
+      border-radius: 13px;
+      padding: 18px 5px;
     }
 
     .tiempo strong {
       display: block;
-      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-size: clamp(23px, 6vw, 34px);
       color: var(--dorado);
+      margin-bottom: 7px;
     }
 
     .tiempo span {
-      font-size: .8rem;
-      color: #f4dce5;
+      font-size: 11px;
+      color: #f6dce6;
+      text-transform: uppercase;
     }
 
     .galeria {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+      margin-top: 30px;
     }
 
     .foto {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(232,196,123,.5);
+      border-radius: 15px;
       overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid #e8c47766;
-      background: #ffffff10;
-      min-height: 190px;
-      position: relative;
+      min-height: 180px;
     }
 
     .foto img {
       display: block;
       width: 100%;
-      height: 220px;
+      height: 210px;
       object-fit: cover;
     }
 
-    .foto .marco-vacio {
-      min-height: 190px;
+    .foto p {
+      padding: 12px 7px;
+      color: var(--rosa);
+      font-size: 14px;
+    }
+
+    .foto-vacia {
+      min-height: 210px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 9px;
-      color: #f5dce4;
-      text-align: center;
+      gap: 12px;
+      color: #f5dce7;
       padding: 15px;
     }
 
-    .marco-vacio b {
-      font-size: 2rem;
+    .foto-vacia span {
+      font-size: 38px;
     }
 
-    .pie-foto {
-      padding: 10px;
-      text-align: center;
-      color: var(--dorado);
-      font-size: .95rem;
+    .agregar {
+      margin-top: 25px;
     }
 
-    .quitar-foto {
-      position: absolute;
-      top: 7px;
-      right: 7px;
-      border: 0;
-      border-radius: 50%;
-      background: #300d20dd;
-      color: white;
-      width: 30px;
-      height: 30px;
-      font-size: 18px;
+    #selectorFotos {
+      display: none;
     }
 
-    .zona-agregar {
-      text-align: center;
-      margin: 22px 0;
+    .musica {
+      padding: 28px 20px;
+      border: 1px solid rgba(232,196,123,.6);
+      border-radius: 17px;
+      background: rgba(255,255,255,.06);
     }
 
-    .nota {
-      color: #f4dce5;
-      font-size: .9rem;
-      line-height: 1.5;
-      margin-top: 12px;
-    }
-
-    .cancion {
-      text-align: center;
-    }
-
-    .cancion .icono-musica {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .cancion input {
-      width: 100%;
-      margin: 15px 0 12px;
-      padding: 13px 14px;
-      border: 1px solid #e8c47788;
-      border-radius: 12px;
-      outline: none;
-      background: #ffffff12;
-      color: white;
-      font-size: 1rem;
-    }
-
-    .cancion input::placeholder {
-      color: #e7cbd5;
-    }
-
-    .cancion input:focus {
-      border-color: var(--dorado);
+    .musica p {
+      line-height: 1.7;
+      margin-bottom: 18px;
     }
 
     .reproductor {
-      margin-top: 20px;
-      overflow: hidden;
-      border-radius: 14px;
-      background: #000;
+      display: none;
+      margin-top: 22px;
     }
 
     .reproductor iframe {
-      display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      max-width: 500px;
+      height: 220px;
       border: 0;
+      border-radius: 12px;
     }
 
-    .mensaje-final {
-      text-align: center;
-      color: #fff1e9;
+    .final {
+      background: linear-gradient(160deg, #4b1731, #260a19);
+      border-radius: 20px;
+      padding: 40px 22px;
+      border: 1px solid var(--dorado);
+    }
+
+    .final h2 {
+      color: var(--rosa);
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .final p {
       line-height: 1.9;
-      font-size: 1.15rem;
-    }
-
-    .mensaje-final .grande {
-      display: block;
-      color: var(--dorado);
-      font-size: clamp(2rem, 7vw, 3rem);
-      margin: 20px 0;
-    }
-
-    .navegacion {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 25px 0;
-    }
-
-    .navegacion button {
-      background: #ffffff12;
-      color: white;
-      border: 1px solid #e8c47766;
-      padding: 10px 16px;
-      border-radius: 25px;
-    }
-
-    .navegacion button:hover {
-      background: #ffffff25;
+      font-size: 18px;
     }
 
     footer {
       text-align: center;
-      color: #e8c477aa;
-      font-size: .85rem;
-      padding: 30px 0 10px;
+      padding: 35px 15px;
+      color: #e8c47b;
+      font-size: 14px;
     }
 
-    @media (max-width: 480px) {
-      .contador { grid-template-columns: repeat(2, 1fr); }
-      .galeria { grid-template-columns: 1fr 1fr; gap: 9px; }
-      .foto img { height: 170px; }
-      .foto { min-height: 160px; }
-      .foto .marco-vacio { min-height: 160px; }
+    .corazon-flotante {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      z-index: 10;
+      animation: subir 7s linear forwards;
+      opacity: .8;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    @keyframes subir {
+      to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .contador {
+        gap: 6px;
+      }
+
+      .tiempo {
+        padding: 14px 3px;
+      }
+
+      .tiempo span {
+        font-size: 9px;
+      }
+
+      .galeria {
+        gap: 9px;
+      }
+
+      .foto img {
+        height: 175px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="corazones" id="corazones"></div>
-
-  <main class="contenedor">
-
-    <!-- PORTADA -->
-    <section class="portada" id="portada">
-      <div class="sobre">💌</div>
-      <h1>Para el amor de mi vida</h1>
-      <p>Mi niña hermosa 🩵🩷💛</p>
-      <p>Abre esto cuando quieras recordar cuánto te amo.</p>
-      <button class="boton" onclick="abrirCarta()">
+  <!-- PANTALLA DE INICIO -->
+  <div class="inicio" id="pantallaInicio">
+    <div class="sobre">
+      <div class="corazon">💌</div>
+      <h1>Para mi niña hermosa</h1>
+      <p>
+        Abre esto cuando quieras recordar cuánto te amo.
+        Preparé algo especial para ti, mi amor.
+      </p>
+      <button class="boton" onclick="abrirRegalo()">
         Abrir mi regalo 💗
       </button>
-    </section>
+    </div>
+  </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="seccion" id="contenido">
+  <div id="contenido">
 
-      <header class="encabezado">
-        <h2>Mi niña hermosa 🩵🩷💛</h2>
-        <p>Hay cosas que merecen ser recordadas para siempre...</p>
-      </header>
+    <!-- PORTADA -->
+    <header>
+      <div class="etiqueta">Un regalo hecho con amor</div>
+      <h1>Para el amor<br>de <span>mi vida</span></h1>
+      <p>
+        Mi niña hermosa 🩵🩷💛<br>
+        Quiero que este pequeño lugar te recuerde
+        lo especial que eres para mí.
+      </p>
+      <div class="adorno">♡ ✨ ♡</div>
+    </header>
 
-      <nav class="navegacion">
-        <button onclick="irA('carta')">💌 Mi carta</button>
-        <button onclick="irA('contador')">⏳ Nuestro tiempo</button>
-        <button onclick="irA('recuerdos')">📸 Recuerdos</button>
-        <button onclick="irA('musica')">🎵 Nuestra canción</button>
-        <button onclick="irA('final')">💗 Un último mensaje</button>
-      </nav>
+    <!-- CARTA -->
+    <section>
+      <h2 class="titulo">Una cartita para ti 💌</h2>
+      <p class="subtitulo">
+        Hay cosas que a veces no sé cómo decirte,
+        así que quise escribirlas aquí.
+      </p>
 
-      <!-- CARTA -->
-      <section class="tarjeta" id="carta">
-        <div class="encabezado">
-          <h2>Una carta para ti</h2>
-          <p>Con todo mi cariño...</p>
-        </div>
+      <div class="carta">
+        <p>Mi niña hermosa:</p>
 
-        <div class="carta">
-Mi niña hermosa:
-
-Quiero que sepas lo importante que eres para mí. Desde que llegaste a mi vida, has hecho que muchos momentos tengan un significado diferente.
-
-No necesito que todos los días sean perfectos, porque sé que lo verdaderamente bonito está en compartir, aprender, apoyarnos y seguir eligiéndonos incluso en los días difíciles.
-
-Quiero seguir creando recuerdos contigo, descubrir nuevos lugares, compartir sonrisas y abrazarte cada vez que pueda.
-
-Gracias por ser tú, por tu cariño y por permitirme formar parte de tu vida.
-
-Espero que cuando veas esta página recuerdes que hay alguien que te quiere muchísimo y que se siente afortunado de tenerte.
-
-Te amo, mi niña hermosa. 🩵🩷💛
-        </div>
-
-        <div class="firma">Con todo mi amor. ❤️</div>
-      </section>
-
-      <!-- CONTADOR -->
-      <section class="tarjeta" id="contador">
-        <div class="encabezado">
-          <h2>Nuestro tiempo juntos ⏳</h2>
-          <p>Cada segundo a tu lado es un recuerdo que guardo en mi corazón.</p>
-        </div>
-
-        <div class="contador">
-          <div class="tiempo">
-            <strong id="dias">0</strong>
-            <span>Días</span>
-          </div>
-          <div class="tiempo">
-            <strong id="horas">0</strong>
-            <span>Horas</span>
-          </div>
-          <div class="tiempo">
-            <strong id="minutos">0</strong>
-            <span>Minutos</span>
-          </div>
-          <div class="tiempo">
-            <strong id="segundos">0</strong>
-            <span>Segundos</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- GALERÍA -->
-      <section class="tarjeta" id="recuerdos">
-        <div class="encabezado">
-          <h2>Nuestros recuerdos 📸</h2>
-          <p>Pequeños momentos que hacen grande nuestra historia.</p>
-        </div>
-
-        <div class="galeria" id="galeria">
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>🩷</b>
-              <span>Primer recuerdo</span>
-            </div>
-            <div class="pie-foto">Un momento especial</div>
-          </article>
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>🩵</b>
-              <span>Segundo recuerdo</span>
-            </div>
-            <div class="pie-foto">Una sonrisa tuya</div>
-          </article>
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>💛</b>
-              <span>Tercer recuerdo</span>
-            </div>
-            <div class="pie-foto">Un día inolvidable</div>
-          </article>
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>💗</b>
-              <span>Cuarto recuerdo</span>
-            </div>
-            <div class="pie-foto">Contigo todo es mejor</div>
-          </article>
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>🌷</b>
-              <span>Quinto recuerdo</span>
-            </div>
-            <div class="pie-foto">Un instante bonito</div>
-          </article>
-
-          <article class="foto">
-            <div class="marco-vacio">
-              <b>💞</b>
-              <span>Sexto recuerdo</span>
-            </div>
-            <div class="pie-foto">Y muchos más por vivir</div>
-          </article>
-
-        </div>
-
-        <div class="zona-agregar">
-          <button class="boton" onclick="document.getElementById('selectorFotos').click()">
-            ＋ Agregar más recuerdos
-          </button>
-
-          <input
-            type="file"
-            id="selectorFotos"
-            accept="image/*"
-            multiple
-            hidden
-            onchange="agregarFotos(event)"
-          >
-
-          <p class="nota">
-            Puedes seleccionar varias fotografías desde tu celular.
-            Las imágenes que agregues desde aquí se mostrarán en este dispositivo.
-          </p>
-        </div>
-      </section>
-
-      <!-- CANCIÓN DE YOUTUBE -->
-      <section class="tarjeta cancion" id="musica">
-        <div class="encabezado">
-          <h2>Nuestra canción 🎵</h2>
-          <p>Una canción que acompañe este pequeño regalo para ti.</p>
-        </div>
-
-        <div class="icono-musica">🎶💗🎶</div>
-
-        <p class="carta">
-          Pega el enlace de YouTube de esa canción especial.
-          Después pulsa el botón para cargarla y reproducirla cuando quieras.
+        <p>
+          Quiero que sepas lo importante que eres para mí.
+          Desde que llegaste a mi vida, has hecho que muchos
+          momentos sean más bonitos y que mis días tengan
+          una razón más para sonreír.
         </p>
 
-        <input
-          type="url"
-          id="enlaceYoutube"
-          placeholder="Pega aquí el enlace de YouTube"
-          autocomplete="off"
-        >
+        <p>
+          No necesito que todos los días sean perfectos.
+          Solo quiero seguir compartiendo contigo momentos,
+          risas, abrazos, sueños y también esos pequeños
+          detalles que hacen especial nuestra historia.
+        </p>
 
-        <button class="boton" onclick="guardarCancion()">
-          Guardar canción 💗
+        <p>
+          Gracias por ser tú, por tu cariño y por permitirme
+          formar parte de tu vida. Quiero seguir eligiéndote,
+          cuidándote y demostrándote cuánto te amo.
+        </p>
+
+        <p>
+          Nunca olvides que tienes a alguien que te quiere
+          muchísimo y que se siente muy afortunado de tenerte.
+        </p>
+
+        <div class="firma">
+          Con todo mi amor,<br>
+          tu persona favorita. ❤️
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTADOR -->
+    <section>
+      <h2 class="titulo">Nuestra historia ⏳</h2>
+      <p class="subtitulo">
+        Cada segundo a tu lado es un recuerdo que quiero conservar.
+      </p>
+
+      <div class="contador">
+        <div class="tiempo">
+          <strong id="dias">0</strong>
+          <span>Días</span>
+        </div>
+        <div class="tiempo">
+          <strong id="horas">0</strong>
+          <span>Horas</span>
+        </div>
+        <div class="tiempo">
+          <strong id="minutos">0</strong>
+          <span>Minutos</span>
+        </div>
+        <div class="tiempo">
+          <strong id="segundos">0</strong>
+          <span>Segundos</span>
+        </div>
+      </div>
+
+      <p class="subtitulo" style="margin-top:22px;">
+        Desde el 5 de abril de 2026. ❤️
+      </p>
+    </section>
+
+    <!-- GALERÍA -->
+    <section>
+      <h2 class="titulo">Nuestros recuerdos 📸</h2>
+      <p class="subtitulo">
+        Cada fotografía guarda un pedacito de nuestra historia.
+        Y todavía nos quedan muchos recuerdos por crear.
+      </p>
+
+      <div class="galeria" id="galeria">
+
+        <!-- PRIMER RECUERDO: FOTO SUBIDA A GITHUB -->
+        <div class="foto">
+          <img
+            src="Screenshot_2026-11-20-10-18-32-360_com.miui.gallery.jpg"
+            alt="Nuestro primer recuerdo especial"
+            loading="lazy"
+          >
+          <p>Nuestro primer recuerdo 💗</p>
+        </div>
+
+        <div class="foto">
+          <div class="foto-vacia">
+            <span>🩵</span>
+            <p>Un recuerdo por venir</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <div class="foto-vacia">
+            <span>🌷</span>
+            <p>Un momento especial</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <div class="foto-vacia">
+            <span>💛</span>
+            <p>Otra historia juntos</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <div class="foto-vacia">
+            <span>✨</span>
+            <p>Un día inolvidable</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <div class="foto-vacia">
+            <span>💞</span>
+            <p>Y muchos más por vivir</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="agregar">
+        <button class="boton" onclick="document.getElementById('selectorFotos').click()">
+          ➕ Agregar más recuerdos
         </button>
 
-        <div class="reproductor" id="reproductor" style="display:none;">
+        <input
+          type="file"
+          id="selectorFotos"
+          accept="image/*"
+          multiple
+          onchange="agregarFotos(event)"
+        >
+
+        <p style="font-size:12px;color:#e8c47b;margin-top:12px;line-height:1.6;">
+          Las fotografías que agregues desde aquí se mostrarán
+          solamente en este dispositivo. Para publicarlas para
+          ambos, también debes subirlas a GitHub.
+        </p>
+      </div>
+    </section>
+
+    <!-- CANCIÓN -->
+    <section>
+      <h2 class="titulo">Una canción para ti 🎵</h2>
+      <p class="subtitulo">
+        Porque hay canciones que nos hacen pensar en alguien especial.
+      </p>
+
+      <div class="musica">
+        <p>
+          Esta canción es para ti, mi niña hermosa. ❤️
+          Cuando quieras escucharla, solo tienes que darle al botón.
+        </p>
+
+        <button class="boton" onclick="mostrarCancion()">
+          ▶ Reproducir nuestra canción
+        </button>
+
+        <div class="reproductor" id="reproductor">
           <iframe
             id="videoYoutube"
             title="Nuestra canción"
+            src=""
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
         </div>
+      </div>
+    </section>
 
-        <p class="nota" id="mensajeCancion">
-          La canción aparecerá aquí. Tu novia tendrá que pulsar reproducir.
+    <!-- MENSAJE FINAL -->
+    <section>
+      <div class="final">
+        <h2>Y por último... 💗</h2>
+        <p>
+          Si algún día dudas de lo mucho que te amo,
+          vuelve a este pequeño rincón.
+          Aquí encontrarás una parte de todo lo que siento
+          por ti y de lo feliz que me hace compartir mi vida contigo.
         </p>
-      </section>
 
-      <!-- MENSAJE FINAL -->
-      <section class="tarjeta" id="final">
-        <div class="mensaje-final">
-          <p>Y si algún día dudas de lo mucho que significas para mí...</p>
-          <span class="grande">Recuerda que te amo ❤️</span>
-          <p>
-            No sé qué nos tenga preparado el futuro, pero quiero seguir
-            compartiendo momentos contigo, cuidando lo nuestro y construyendo
-            recuerdos que nos hagan sonreír.
-          </p>
-          <span class="grande">Mi niña hermosa 🩵🩷💛</span>
-          <p>Esta página es pequeña, pero el cariño con el que la hice es enorme.</p>
-          <p style="margin-top:20px;">Siempre tú. 💗</p>
+        <p style="margin-top:22px;color:#f4b8cc;">
+          Te amo, mi niña hermosa. 🩵🩷💛
+        </p>
+
+        <div style="font-size:35px;margin-top:20px;">
+          ♡ ∞ ♡
         </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
 
     <footer>
-      Hecho con amor, para alguien muy especial. ❤️
+      Hecho con muchísimo amor, solamente para ti. ❤️
+      <br>
+      Para el amor de mi vida.
     </footer>
 
-  </main>
+  </div>
 
   <script>
-    // ==========================================
-    // CONFIGURACIÓN DE LA PÁGINA
-    // ==========================================
-
-    // Pega aquí el enlace de YouTube para que aparezca
-    // también cuando tu novia abra la página desde otro celular.
-    const ENLACE_CANCION = "";
-
-    // Fecha de inicio de la relación: 5 de abril de 2026.
+    // FECHA EN LA QUE COMENZÓ NUESTRA HISTORIA
     const FECHA_INICIO = new Date(2026, 3, 5, 0, 0, 0);
 
-    // ==========================================
-    // ABRIR LA CARTA
-    // ==========================================
+    // ENLACE DE LA CANCIÓN DE YOUTUBE
+    const ENLACE_CANCION =
+      "https://youtu.be/7XPmRUp_Yf4?si=58ZTxdiIP_hELO5d";
 
-    function abrirCarta() {
-      document.getElementById("portada").style.display = "none";
-      document.getElementById("contenido").classList.add("visible");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    // ABRIR EL REGALO
+    function abrirRegalo() {
+      document.getElementById("pantallaInicio").style.display = "none";
+      document.getElementById("contenido").style.display = "block";
+
+      window.scrollTo(0, 0);
+      actualizarContador();
     }
 
-    function irA(id) {
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-
-    // ==========================================
     // CONTADOR DE TIEMPO
-    // ==========================================
-
     function actualizarContador() {
       const ahora = new Date();
       let diferencia = ahora - FECHA_INICIO;
 
-      if (diferencia < 0) diferencia = 0;
+      if (diferencia < 0) {
+        diferencia = 0;
+      }
 
       const totalSegundos = Math.floor(diferencia / 1000);
+
       const dias = Math.floor(totalSegundos / 86400);
       const horas = Math.floor((totalSegundos % 86400) / 3600);
       const minutos = Math.floor((totalSegundos % 3600) / 60);
@@ -651,183 +643,95 @@ Te amo, mi niña hermosa. 🩵🩷💛
       document.getElementById("segundos").textContent = segundos;
     }
 
-    actualizarContador();
     setInterval(actualizarContador, 1000);
+    actualizarContador();
 
-    // ==========================================
-    // GALERÍA: AGREGAR FOTOGRAFÍAS
-    // ==========================================
+    // REPRODUCIR CANCIÓN MANUALMENTE
+    function mostrarCancion() {
+      const reproductor = document.getElementById("reproductor");
+      const video = document.getElementById("videoYoutube");
 
-    let cantidadFotosAgregadas = 0;
-    const MAX_FOTOS = 50;
+      if (!video.src) {
+        const coincidencia = ENLACE_CANCION.match(
+          /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/
+        );
 
+        if (!coincidencia) {
+          alert("No se pudo reconocer el enlace de YouTube.");
+          return;
+        }
+
+        video.src =
+          "https://www.youtube.com/embed/" +
+          coincidencia[1] +
+          "?autoplay=0&controls=1&rel=0";
+      }
+
+      reproductor.style.display = "block";
+      reproductor.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    // AGREGAR FOTOGRAFÍAS DESDE EL DISPOSITIVO
     function agregarFotos(evento) {
       const archivos = Array.from(evento.target.files || []);
       const galeria = document.getElementById("galeria");
-      const disponibles = MAX_FOTOS - cantidadFotosAgregadas;
 
-      if (disponibles <= 0) {
-        alert("Has alcanzado el límite de 50 fotografías adicionales.");
-        evento.target.value = "";
-        return;
-      }
-
-      archivos.slice(0, disponibles).forEach((archivo) => {
-        if (!archivo.type.startsWith("image/")) return;
+      archivos.forEach(archivo => {
+        if (!archivo.type.startsWith("image/")) {
+          return;
+        }
 
         const lector = new FileReader();
 
         lector.onload = function(e) {
-          const tarjeta = document.createElement("article");
+          const tarjeta = document.createElement("div");
           tarjeta.className = "foto";
 
           const imagen = document.createElement("img");
           imagen.src = e.target.result;
-          imagen.alt = "Recuerdo especial";
+          imagen.alt = "Nuevo recuerdo";
 
-          const pie = document.createElement("div");
-          pie.className = "pie-foto";
-          pie.textContent = "Un recuerdo contigo 💗";
-
-          const quitar = document.createElement("button");
-          quitar.className = "quitar-foto";
-          quitar.type = "button";
-          quitar.textContent = "×";
-          quitar.setAttribute("aria-label", "Quitar fotografía");
-
-          quitar.addEventListener("click", function() {
-            tarjeta.remove();
-            cantidadFotosAgregadas--;
-          });
+          const texto = document.createElement("p");
+          texto.textContent = "Un recuerdo más contigo 💗";
 
           tarjeta.appendChild(imagen);
-          tarjeta.appendChild(quitar);
-          tarjeta.appendChild(pie);
+          tarjeta.appendChild(texto);
           galeria.appendChild(tarjeta);
-
-          cantidadFotosAgregadas++;
         };
 
         lector.readAsDataURL(archivo);
       });
 
-      if (archivos.length > disponibles) {
-        alert("Se agregaron las primeras " + disponibles +
-          " fotografías para respetar el límite.");
-      }
-
       evento.target.value = "";
     }
 
-    // ==========================================
-    // YOUTUBE: REPRODUCTOR MANUAL
-    // ==========================================
-
-    function obtenerIdYoutube(enlace) {
-      try {
-        const url = new URL(enlace.trim());
-        const host = url.hostname.replace(/^www\./, "").toLowerCase();
-        let id = "";
-
-        if (host === "youtu.be") {
-          id = url.pathname.split("/").filter(Boolean)[0] || "";
-        } else if (
-          host === "youtube.com" ||
-          host === "m.youtube.com" ||
-          host === "music.youtube.com"
-        ) {
-          if (url.pathname === "/watch") {
-            id = url.searchParams.get("v") || "";
-          } else {
-            const partes = url.pathname.split("/").filter(Boolean);
-            if (["embed", "shorts", "live"].includes(partes[0])) {
-              id = partes[1] || "";
-            }
-          }
-        }
-
-        return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : null;
-      } catch (error) {
-        return null;
-      }
-    }
-
-    function mostrarCancion(enlace) {
-      const id = obtenerIdYoutube(enlace);
-      const mensaje = document.getElementById("mensajeCancion");
-      const reproductor = document.getElementById("reproductor");
-      const video = document.getElementById("videoYoutube");
-
-      if (!id) {
-        mensaje.textContent = "Ese enlace no parece válido. Revisa que sea un enlace de YouTube.";
-        reproductor.style.display = "none";
-        video.src = "";
-        return false;
-      }
-
-      // Sin autoplay: la persona debe pulsar reproducir.
-      video.src = "https://www.youtube.com/embed/" + id;
-
-      reproductor.style.display = "block";
-      mensaje.textContent = "Nuestra canción está lista. Pulsa reproducir cuando quieras. 💗";
-      return true;
-    }
-
-    function guardarCancion() {
-      const enlace = document.getElementById("enlaceYoutube").value.trim();
-
-      if (!enlace) {
-        alert("Primero pega el enlace de tu canción de YouTube.");
+    // CORAZONES FLOTANTES
+    function crearCorazon() {
+      if (document.getElementById("contenido").style.display !== "block") {
         return;
       }
 
-      if (mostrarCancion(enlace)) {
-        // Este guardado es local en el navegador de este dispositivo.
-        try {
-          localStorage.setItem("cancionParaMiNina", enlace);
-        } catch (error) {
-          // El reproductor seguirá funcionando aunque el navegador
-          // no permita guardar en almacenamiento local.
-        }
-      }
+      const corazon = document.createElement("div");
+      corazon.className = "corazon-flotante";
+
+      const simbolos = ["💗", "💖", "💕", "🩵", "💛", "♡"];
+      corazon.textContent =
+        simbolos[Math.floor(Math.random() * simbolos.length)];
+
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.fontSize = (15 + Math.random() * 18) + "px";
+
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 7000);
     }
 
-    // Cargar la canción configurada en el código.
-    // Si no hay una configurada, se usa el enlace guardado localmente.
-    window.addEventListener("DOMContentLoaded", function() {
-      const campo = document.getElementById("enlaceYoutube");
-      let enlaceInicial = ENLACE_CANCION.trim();
-
-      if (!enlaceInicial) {
-        try {
-          enlaceInicial = localStorage.getItem("cancionParaMiNina") || "";
-        } catch (error) {
-          enlaceInicial = "";
-        }
-      }
-
-      if (enlaceInicial) {
-        campo.value = enlaceInicial;
-        mostrarCancion(enlaceInicial);
-      }
-    });
-
-    // ==========================================
-    // CORAZONES ANIMADOS
-    // ==========================================
-
-    const zonaCorazones = document.getElementById("corazones");
-
-    for (let i = 0; i < 18; i++) {
-      const corazon = document.createElement("span");
-      corazon.className = "corazon";
-      corazon.textContent = ["♡", "♥", "💗", "💕"][i % 4];
-      corazon.style.left = Math.random() * 100 + "%";
-      corazon.style.animationDelay = Math.random() * 12 + "s";
-      corazon.style.animationDuration = (9 + Math.random() * 9) + "s";
-      corazon.style.fontSize = (15 + Math.random() * 20) + "px";
-      zonaCorazones.appendChild(corazon);
-    }
+    setInterval(crearCorazon, 900);
   </script>
 
 </body>
